@@ -1,6 +1,6 @@
 {
   "name": "react-play",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "private": true,
   "scripts": {
     "start": "react-scripts start",
@@ -17,12 +17,12 @@
     "@types/node": "^14.14.37",
     "@types/react": "^17.0.3",
     "@types/react-dom": "^17.0.3",
+    "node-sass": "^5.0.0",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "react-scripts": "4.0.3",
     "typescript": "^4.2.3",
-    "web-vitals": "^1.0.1",
-    "node-sass": "^5.0.0"
+    "web-vitals": "^1.0.1"
   },
   "eslintConfig": {
     "extends": [
@@ -47,8 +47,8 @@
     "@commitlint/config-conventional": "^12.0.1",
     "@commitlint/utils": "^9.0.1",
     "commitlint-config-gitmoji": "^2.2.3",
-    "conventional-changelog-conventionalcommits": "^4.5.0",
     "conventional-changelog-cli": "^2.1.1",
+    "conventional-changelog-conventionalcommits": "^4.5.0",
     "husky": "^5.2.0"
   }
 }
