@@ -1,7 +1,7 @@
 import logo from './logo.svg';
 import './App.scss';
 
-import { AddCount, AddCount10 } from './scene';
+import { AddCount, AddCount10, HoxCount, HoxCount2, HoxLog } from './scene';
 
 function App() {
   return (
@@ -12,6 +12,9 @@ function App() {
       </div>
       <AddCount />
       <AddCount10 />
+      <HoxCount />
+      <HoxCount2 />
+      <HoxLog />
     </div>
   );
 }
