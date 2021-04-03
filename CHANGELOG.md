@@ -1,3 +1,11 @@
+## <small>0.1.3 (2021-04-03)</small>
+
+* :art: feat: hox use ([8a159da](https://github.com/zacard-orc/react-play/commit/8a159da))
+* :art: fix: emoji arp=>art ([6377e82](https://github.com/zacard-orc/react-play/commit/6377e82))
+* :art: style: tips ([fd1854b](https://github.com/zacard-orc/react-play/commit/fd1854b))
+
+
+
 ## <small>0.1.2 (2021-04-03)</small>
 
 * :art: feat: add prettier ([00d6264](https://github.com/zacard-orc/react-play/commit/00d6264))
