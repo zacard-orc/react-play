@@ -1,7 +1,7 @@
 import logo from './logo.svg';
 import './App.css';
 
-import { AddCount } from './scene';
+import { AddCount, AddCount10 } from './scene';
 
 function App() {
   return (
@@ -11,6 +11,7 @@ function App() {
         React Play
       </div>
       <AddCount />
+      <AddCount10 />
     </div>
   );
 }
