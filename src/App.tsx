@@ -1,14 +1,14 @@
 import logo from './logo.svg';
-import './App.css';
+import './App.scss';
 
 import { AddCount, AddCount10 } from './scene';
 
 function App() {
   return (
     <div className="App">
-      <div style={{ marginBottom: '1rem' }}>
+      <div className="app-title">
         <img src={logo} className="App-logo" alt="logo" />
-        React Play
+        <div>React Play</div>
       </div>
       <AddCount />
       <AddCount10 />

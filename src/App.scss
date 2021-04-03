@@ -2,9 +2,22 @@
 /*  text-align: center;*/
 /*}*/
 
+.t-bd{
+  border: 1px dashed grey;
+}
+
 .App-logo {
-  height: 10vmin;
+  height: 5vw;
   pointer-events: none;
+}
+
+.app-title {
+  display: grid;
+  grid-template-columns: 7vw 20rem;
+  margin-bottom: 1rem;
+  > div {
+    line-height: 5vw;
+  }
 }
 
 /*@media (prefers-reduced-motion: no-preference) {*/
