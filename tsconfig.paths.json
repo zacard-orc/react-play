@@ -4,5 +4,11 @@
     "paths": {
       "~/*": ["./src/*"],
     }
+  },
+  "linterOptions": {
+    "exclude": [
+      "public",
+      "recycle",
+    ]
   }
 }

@@ -5,6 +5,7 @@ declare module '*.svg' {
 
 type ActionPayloadCount = {
   count: number;
+  msg?: string;
 };
 
 interface Action<T> {
