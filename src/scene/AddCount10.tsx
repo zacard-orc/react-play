@@ -12,9 +12,9 @@ export const AddCount10 = () => {
   return (
     <div className="scene">
       <div style={{ borderBottom: '2px solid grey', marginBottom: '0.3rem' }}>
-        Show React-Redux Hooks AddCount x10
+        React-Redux Hooks AddCount x10
       </div>
-      <div style={{ marginBottom: '0.3rem' }}>store count {count}</div>
+      <div className="scene_tips">store count {count}</div>
       <button
         onClick={() => dispatch({ type: ADD_COUNT, payload: { count: 10 } })}
       >

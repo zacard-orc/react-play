@@ -11,9 +11,9 @@ export const HoxCount = () => {
   return (
     <div className="scene">
       <div style={{ borderBottom: '2px solid grey', marginBottom: '0.3rem' }}>
-        Show Hox Count x1
+        Hox Count x1
       </div>
-      <div style={{ marginBottom: '0.3rem' }}>hox count {counter.count} </div>
+      <div className="scene_tips">hox count {counter.count} </div>
       <div style={{ marginBottom: '0.3rem' }}>
         {/*static count {useCounterModel.data}{' '}*/}
       </div>

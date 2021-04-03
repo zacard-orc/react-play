@@ -9,9 +9,9 @@ export const HoxCount2 = () => {
   return (
     <div className="scene">
       <div style={{ borderBottom: '2px solid grey', marginBottom: '0.3rem' }}>
-        Show Hox Count x2
+        Hox Count x2
       </div>
-      <div style={{ marginBottom: '0.3rem' }}>hox count {counter.count} </div>
+      <div className="scene_tips">hox count {counter.count} </div>
       <button
         onClick={() => {
           counter.incrment();
