@@ -1,3 +1,9 @@
+## <small>0.1.4 (2021-04-03)</small>
+
+* :art: feat: thunk async ([71f0b28](https://github.com/zacard-orc/react-play/commit/71f0b28))
+
+
+
 ## <small>0.1.3 (2021-04-03)</small>
 
 * :art: feat: hox use ([8a159da](https://github.com/zacard-orc/react-play/commit/8a159da))
