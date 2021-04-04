@@ -20,6 +20,7 @@ function App() {
         <img src={logo} className="App-logo" alt="logo" />
         <div>React Play</div>
       </div>
+      <div className="test-p2vw"></div>
       <AddCount />
       <AddCount10 />
       <HoxCount />
