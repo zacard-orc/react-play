@@ -1,3 +1,10 @@
+## <small>0.1.6 (2021-04-04)</small>
+
+* :art: feat: add postcss viewport & bugfill ([ea7e4ad](https://github.com/zacard-orc/react-play/commit/ea7e4ad))
+* :art: style: add eslint rule prefer-template ([962d695](https://github.com/zacard-orc/react-play/commit/962d695))
+
+
+
 ## <small>0.1.5 (2021-04-04)</small>
 
 * :art: feat: use websocket on market ([01483ba](https://github.com/zacard-orc/react-play/commit/01483ba))
