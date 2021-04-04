@@ -8,6 +8,9 @@ import {
   HoxCount2,
   HoxLog,
   TkHello,
+  WsKlines,
+  WsOrderBook,
+  WsSymbol,
 } from './scene';
 
 function App() {
@@ -23,6 +26,9 @@ function App() {
       <HoxCount2 />
       <HoxLog />
       <TkHello />
+      <WsSymbol />
+      <WsOrderBook />
+      <WsKlines />
     </div>
   );
 }

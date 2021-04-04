@@ -4,3 +4,6 @@ export * from './HoxCount';
 export * from './HoxCount2';
 export * from './HoxLog';
 export * from './TkHello';
+export * from './WsSymbol';
+export * from './WsOrderBook';
+export * from './WsKlines';
