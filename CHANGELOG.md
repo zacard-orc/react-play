@@ -1,3 +1,9 @@
+## <small>0.1.5 (2021-04-04)</small>
+
+* :art: feat: use websocket on market ([01483ba](https://github.com/zacard-orc/react-play/commit/01483ba))
+
+
+
 ## <small>0.1.4 (2021-04-03)</small>
 
 * :art: feat: thunk async ([71f0b28](https://github.com/zacard-orc/react-play/commit/71f0b28))
