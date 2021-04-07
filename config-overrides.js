@@ -4,7 +4,7 @@ const path = require('path');
 module.exports = function override(config) {
   require('react-app-rewire-postcss')(config, {
     plugins: (loader) => [
-      require('postcss-flexbugs-fixes'),
+      // require('postcss-flexbugs-fixes'),
       require('postcss-px-to-viewport')({
         viewportWidth: 750, // (Number) The width of the viewport.
         unitPrecision: 6, // (Number) The decimal numbers to allow the REM units to grow to.
