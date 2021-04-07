@@ -4,41 +4,31 @@
   <meta charset="UTF-8">
   <title>Document</title>
   <style>
-      .demoHidden{
-          display: none;
+      select {
+          width: 220px;
+          margin-left: 12px;
+          padding-left: 12px;
+          height: 31px;
+          line-height: 31px;
+          font-size: 12px;
+          color: #333;
+          appearance: none;
+          -webkit-appearance: none;
+          -ms-appearance: none;
+          -moz-appearance: none;
+          -o-appearance: none;
+          background: url(http://img1.sycdn.imooc.com/5e53e879000181b900290027.jpg) right center no-repeat;
+          background-size: 29px 27px;
+          border: 2px solid #fe606e;
+          overflow: hidden;
       }
-      .radioInput{
-          display: inline-block;
-          width:36px;
-          height:36px;
-          border:2px solid green;
-          border-radius:100%;
-          margin-right:10px;
-          vertical-align: middle;
-      }
-      .demoHidden:checked + .radioInput:after{
-          content:"";
-          display: inline-block;
-          width:26px;
-          height:26px;
-          background:#00a1e9;
-          border-radius:100%;
-          margin-top:5px;
-          margin-left:5px;
-      }
-      .demoHidden:checked + .radioInput{
-          border:2px solid #00a1e9;
-      }
+
   </style>
 </head>
 <body>
-<label>
-  <input type="radio" name="demo-radio" class="demoHidden">
-  <span class="radioInput"></span>先生
-</label>
-<label>
-  <input type="radio" name="demo-radio" class="demoHidden">
-  <span class="radioInput"></span>女士
-</label>
+<div class="form-group">
+  <label class="search-base-label">调换部门：</label>
+  <select class="search-select"></select>
+</div>
 </body>
 </html>

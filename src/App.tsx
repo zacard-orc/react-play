@@ -14,7 +14,7 @@ import {
   WsSymbol,
 } from './scene';
 
-import { FdRadioGroup } from './parts';
+import { FdRadioGroup, FdSelect } from './parts';
 
 function App() {
   const radioOptions = [
@@ -30,6 +30,9 @@ function App() {
       <div className="app-title">
         <img src={logo} className="App-logo" alt="logo" />
         <div>React Play</div>
+      </div>
+      <div style={{ width: '500px' }}>
+        <FdSelect />
       </div>
       <div style={{ width: '500px' }}>
         <FdRadioGroup
