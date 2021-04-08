@@ -31,7 +31,7 @@ function App() {
         <img src={logo} className="App-logo" alt="logo" />
         <div>React Play</div>
       </div>
-      <div style={{ width: '500px' }}>
+      <div style={{ width: '300px', height: '200px' }}>
         <FdSelect />
       </div>
       <div style={{ width: '500px' }}>

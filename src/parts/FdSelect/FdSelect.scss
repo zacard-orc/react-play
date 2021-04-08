@@ -1,0 +1,81 @@
+.test {
+  height: 20px;
+}
+
+.t-bd {
+  border: 1px solid grey;
+}
+
+.bas {
+  color: #fff;
+  border: none;
+  opacity: 1;
+}
+
+$selWidth: 150px;
+
+.fm-sel {
+  //@extend .t-bd;
+  width: $selWidth;
+
+  .ipt-selinput {
+    background-color: ghostwhite;
+    border: 1px solid grey;
+    outline: none;
+    height: 20px;
+    padding: 0 6px;
+    box-sizing: border-box;
+    color: #000;
+    font-size: 6px;
+    width: $selWidth;
+    &::placeholder {
+      color: blue;
+    }
+
+    &:focus {
+      background-color: #f5f2ff;
+      box-shadow: inset 0 1px 1px rgba(0,0,0,.075),0 0 8px rgba(102,175,233,.6);
+      & + .fm-r1 {
+        display: block;
+      }
+    }
+
+  }
+
+  .fm-r1{
+    position: relative;
+    width: $selWidth;
+    height: 0;
+    display: block;
+  }
+
+  .fm-r1-1{
+    position: absolute;
+    z-index: 10;
+    width: 100%;
+    background: #d4d8ff;
+    font-size: 12px;
+    >div{
+      height: 20px;
+      line-height: 20px;
+      &:hover {
+        background-color: darkseagreen;
+        color: #fff;
+      }
+    }
+  }
+  .fm-r2{
+    position: relative;
+    width: 100%;
+    height: 0;
+  }
+  .fm-r2-1{
+    position: absolute;
+    z-index: 12;
+    top: -20px;
+    left: 130px;
+    width: 20px;
+    background: darkseagreen;
+  }
+}
+
