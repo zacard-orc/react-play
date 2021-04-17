@@ -1,0 +1,25 @@
+.t-bd{
+  border: 1px dashed grey;
+}
+
+.fm-sroom{
+  //display: grid;
+  //grid-template-columns: 0.4fr 2fr 1fr;
+  display: flex;
+  flex-direction: row;
+  >div{
+    flex: 0 0 50px;
+    @extend .t-bd;
+  }
+  .sroomx{
+    background-color: #E9E3F5;
+    position: relative;
+    height: 0;
+    >div{
+      width: 100%;
+      position: absolute;
+      z-index: 30;
+      background-color: #E9E3F5;
+    }
+  }
+}

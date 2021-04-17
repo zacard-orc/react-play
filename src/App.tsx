@@ -12,9 +12,10 @@ import {
   WsKlines,
   WsOrderBook,
   WsSymbol,
+  ScaleUp,
 } from './scene';
 
-import { FdRadioGroup, FdSelect } from './parts';
+import { FdRadioGroup, FdSelect, FdSpaceRoom, FdSub } from './parts';
 
 function App() {
   const radioOptions = [
@@ -31,6 +32,8 @@ function App() {
         <img src={logo} className="App-logo" alt="logo" />
         <div>React Play</div>
       </div>
+      <FdSub />
+      <FdSpaceRoom />
       <div style={{ width: '500px' }}>
         <FdSelect />
       </div>
@@ -41,6 +44,10 @@ function App() {
             console.log('hit => ', hitIdx, hitMsg);
           }}
         />
+      </div>
+
+      <div>
+        <ScaleUp />
       </div>
 
       {/*<div className="test-p2vw"></div>*/}
