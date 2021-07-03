@@ -2,6 +2,8 @@ import { useState } from 'react';
 import logo from './logo.svg';
 import './App.scss';
 
+import * as foo from 'foo';
+
 import {
   AddCount,
   AddCount10,
@@ -18,6 +20,8 @@ import {
 import { FdRadioGroup, FdSelect, FdSpaceRoom, FdSub } from './parts';
 
 function App() {
+  console.log(foo);
+
   const radioOptions = [
     { label: '汽车', active: false },
     { label: '轮船', active: false },
