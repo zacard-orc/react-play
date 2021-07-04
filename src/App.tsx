@@ -11,30 +11,83 @@ function App() {
   // const [lastPosTop, setPosTop] = useState<number>(0);
   const [lastPosTop, setPosTop] = useState<number>(0);
   const [offset, setOffset] = useState<number>(0);
-
-  const colorList = [
-    '#C8AEFB', // a 0 0
-    '#FFC2C2', // b 1 100
-    '#6495ed', // c 2 -100
-  ];
+  const [colorList, setColorList] = useState<any>([
+    {
+      dvName: '紫色',
+      bgColor: '#C8AEFB',
+      posTop: -100,
+    },
+    {
+      dvName: '粉红',
+      bgColor: '#FFC2C2',
+      posTop: 0,
+    },
+    {
+      dvName: '蓝色',
+      bgColor: '#6495ed',
+      posTop: 100,
+    },
+  ]);
 
   const rdCube = () => {
     const mod = offset % 3;
     console.log('offset=>', offset, mod);
 
-    let posColorList: any = [];
-    Object.assign(posColorList, colorList);
-    const arr = new Array(Math.abs(mod));
-    arr.fill(0);
+    // console.log(rfColorList);
+    // setColorList(rfColorList);
 
-    arr.map((_) => {
-      const outEl = posColorList.shift();
-      posColorList.push(outEl);
-    });
+    // const colorList = [
+    //   {
+    //     dvName: '紫色',
+    //     bgColor: '#C8AEFB',
+    //     posTop: -100,
+    //   },
+    //   {
+    //     dvName: '粉红',
+    //     bgColor: '#FFC2C2',
+    //     posTop: 0,
+    //   },
+    //   {
+    //     dvName: '蓝色',
+    //     bgColor: '#6495ed',
+    //     posTop: 100,
+    //   },
+    // ];
 
-    return posColorList.map((el: string, idx: number) => {
-      const acPos = idx === 0 ? 0 : idx === 1 ? 100 : -100;
-      return <MouSq posTop={acPos} bgColor={el} key={idx} />;
+    // const rfColorList = colorList.map((el: any) => {
+    //   el.posTop = el.posTop - mod * 100;
+    //   if (el.posTop <= -200) {
+    //     el.posTop = 100;
+    //   }
+    //   if (el.posTop >= 200) {
+    //     el.posTop = -100;
+    //   }
+    //   return el;
+    // });
+
+    return colorList.map((el: any, idx: number) => {
+      // const acPos = idx === 0 ? 0 : idx === 1 ? 100 : -100;
+      let acPost = el.posTop - mod * 100;
+
+      // acPost <= -200 ? 100 : acPost
+      const needShow = acPost > -200 && acPost < 200;
+      if (acPost <= -200) {
+        acPost = 100;
+      }
+      if (el.posTop >= 200) {
+        acPost = -100;
+      }
+      // console.log(el.dvName, acPost, needShow);
+
+      return (
+        <MouSq
+          posTop={acPost}
+          dvName={el.dvName}
+          bgColor={el.bgColor}
+          show={needShow}
+          key={idx}
+        />
+      );
     });
   };
 
@@ -51,17 +104,6 @@ function App() {
       // const comPos =
       //   lastPosTop + (isSwipe.delta * 100 * 2) / window.screen.height;
       // console.log(comPos);
-      // a++;
-      // if (a % 3 === 0) {
-      //   setPosTop(-10);
-      // }
-      // if (a % 3 === 1) {
-      //   setPosTop(40);
-      // }
-      // if (a % 3 === 2) {
-      //   setPosTop(90);
-      // }
-      // setPosTop(0);
       setOffset(offset + isSwipe.direction);
     }
   }, [isSwipe.status]);
