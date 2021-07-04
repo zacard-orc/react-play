@@ -4,6 +4,7 @@ import './cube.scss';
 
 export const MouSq = ({ posTop, bgColor, dvName, show }: any) => {
   const sqRef: any = createRef<HTMLDivElement>();
+  // console.log('ccc =>', dvName, show);
 
   useEffect(() => {
     if (!show) {

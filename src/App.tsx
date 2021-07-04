@@ -4,7 +4,7 @@ import { MouSq } from '~/cube/MouSq';
 import './App.scss';
 import { useEffect, useState } from 'react';
 
-let a = 1;
+const lastPP = [-100, 0, 100];
 
 function App() {
   const isSwipe = useSwipe();
@@ -35,6 +35,8 @@ function App() {
     return colorList.map((el: any, idx: number) => {
       let acPost = el.posTop - mod * 100;
 
+      // console.log('before =>', el.dvName, acPost);
+
       let needShow = acPost > -200 && acPost < 200;
       if (acPost === -200) {
         acPost = 100;
@@ -49,7 +51,17 @@ function App() {
       if (acPost === 300) {
         acPost = 0;
       }
+
+      if (offset >= 3 && idx === 2 && mod === 0) {
+        needShow = false;
+      }
+
+      if (offset <= -3 && idx === 0 && mod === 0) {
+        needShow = false;
+      }
+
       console.log('after =>', el.dvName, acPost, needShow);
+      lastPP[idx] = acPost;
 
       return (
         <MouSq
@@ -86,7 +98,7 @@ function App() {
         <div>status: {isSwipe.status}</div>
         <div>delta: {Math.abs(isSwipe.delta)}</div>
         <div>direction: {isSwipe.direction === 1 ? 'up' : 'down'}</div>
-        <div>lastPosTop: {lastPosTop}</div>
+        <div>lastPosTop: {lastPP.join(', ')}</div>
         <div>offset: {offset}</div>
       </div>
       <div className="cube-ct">{rdCube()}</div>
