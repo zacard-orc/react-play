@@ -32,52 +32,24 @@ function App() {
   const rdCube = () => {
     const mod = offset % 3;
     console.log('offset=>', offset, mod);
-
-    // console.log(rfColorList);
-    // setColorList(rfColorList);
-
-    // const colorList = [
-    //   {
-    //     dvName: '紫色',
-    //     bgColor: '#C8AEFB',
-    //     posTop: -100,
-    //   },
-    //   {
-    //     dvName: '粉红',
-    //     bgColor: '#FFC2C2',
-    //     posTop: 0,
-    //   },
-    //   {
-    //     dvName: '蓝色',
-    //     bgColor: '#6495ed',
-    //     posTop: 100,
-    //   },
-    // ];
-
-    // const rfColorList = colorList.map((el: any) => {
-    //   el.posTop = el.posTop - mod * 100;
-    //   if (el.posTop <= -200) {
-    //     el.posTop = 100;
-    //   }
-    //   if (el.posTop >= 200) {
-    //     el.posTop = -100;
-    //   }
-    //   return el;
-    // });
-
     return colorList.map((el: any, idx: number) => {
-      // const acPos = idx === 0 ? 0 : idx === 1 ? 100 : -100;
       let acPost = el.posTop - mod * 100;
 
-      // acPost <= -200 ? 100 : acPost
-      const needShow = acPost > -200 && acPost < 200;
-      if (acPost <= -200) {
+      let needShow = acPost > -200 && acPost < 200;
+      if (acPost === -200) {
         acPost = 100;
       }
-      if (el.posTop >= 200) {
+      if (acPost === -300) {
+        acPost = 0;
+      }
+
+      if (acPost === 200) {
         acPost = -100;
       }
-      // console.log(el.dvName, acPost, needShow);
+      if (acPost === 300) {
+        acPost = 0;
+      }
+      console.log('after =>', el.dvName, acPost, needShow);
 
       return (
         <MouSq

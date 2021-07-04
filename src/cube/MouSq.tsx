@@ -8,7 +8,9 @@ export const MouSq = ({ posTop, bgColor, dvName, show }: any) => {
   useEffect(() => {
     if (!show) {
       setTimeout(() => {
-        sqRef.current.style.display = 'block';
+        if (sqRef.current) {
+          sqRef.current.style.display = 'block';
+        }
       }, 500);
     }
   }, [show]);
