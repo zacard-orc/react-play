@@ -4,8 +4,13 @@
   overflow: hidden;
 }
 
+html {
+  overflow: hidden;
+}
+
 body {
   margin: 0;
+  overflow: scroll;
 }
 * {
   box-sizing: border-box;

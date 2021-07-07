@@ -29,9 +29,12 @@ function App() {
     },
   ]);
 
+  const [dbo, setdbo] = useState([-100, 0, 100]);
+
   const rdCube = () => {
     const mod = offset % 3;
-    console.log('offset=>', offset, mod);
+    console.log(dbo);
+    // console.log('offset=>', offset, mod);
     return colorList.map((el: any, idx: number) => {
       let acPost = el.posTop - mod * 100;
 
@@ -89,6 +92,23 @@ function App() {
       //   lastPosTop + (isSwipe.delta * 100 * 2) / window.screen.height;
       // console.log(comPos);
       setOffset(offset + isSwipe.direction);
+      const ndbo = dbo.map((el) => {
+        let eltmp = el;
+        if (isSwipe.direction === 1) {
+          eltmp = el + 100;
+        }
+        if (isSwipe.direction === -1) {
+          eltmp = el - 100;
+        }
+        if (eltmp === -200) {
+          return 100;
+        }
+        if (eltmp === 200) {
+          return -100;
+        }
+        return eltmp;
+      });
+      setdbo(ndbo);
     }
   }, [isSwipe.status]);
 
