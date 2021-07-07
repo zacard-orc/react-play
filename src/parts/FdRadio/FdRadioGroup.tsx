@@ -15,6 +15,7 @@ const FdRadioGroup = ({ options, onRadioHit }: FdRadioGroup) => {
             active={radioSt[idx]}
             label={el.label}
             labelIdx={idx}
+            key={idx}
             onChangeNotice={(hitMsg, hitIdx) => {
               const newState = !radioSt[hitIdx];
               radioSt.fill(false);

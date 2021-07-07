@@ -7,3 +7,4 @@ export * from './TkHello';
 export * from './WsSymbol';
 export * from './WsOrderBook';
 export * from './WsKlines';
+export * from './ScaleUp';

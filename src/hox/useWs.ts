@@ -1,6 +1,7 @@
 import useWebSocket from 'react-use-websocket';
 import { createModel } from 'hox';
 import { useEffect, useState } from 'react';
+import PubSub from 'pubsub-js';
 
 enum FlowType {
   OrderBook = 'OrderBook',
@@ -25,6 +26,8 @@ function _useWs(initialValue: number) {
   });
 
   useEffect(() => {
+    PubSub.publish('rx-ws', lastJsonMessage?.payload);
+
     switch (lastJsonMessage?.type as FlowType) {
       case FlowType.SymbolMarkets:
         setPdSymbol(lastJsonMessage.payload as FlowSymbolMarkets);

@@ -3,6 +3,10 @@ declare module '*.svg' {
   export default content;
 }
 
+declare module 'foo' {
+  export const bar: number;
+}
+
 type ActionPayloadCount = {
   count: number;
   msg?: string;
