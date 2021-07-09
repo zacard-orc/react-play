@@ -9,6 +9,7 @@ interface Ax {
 
 interface AxSet {
   start?: Ax;
+  last?: Ax;
   moving?: Ax;
   end?: Ax;
 }
@@ -27,7 +28,6 @@ export const useSwipe = () => {
     delta: 0,
     ttl: 0,
   });
-  // const [lastPos, setlastPos] = useState<number>(0);
 
   const getPoint = (e: TouchEvent) => {
     return e.touches[0];
@@ -35,7 +35,7 @@ export const useSwipe = () => {
 
   useEffect(() => {
     let ax: AxSet = {};
-    let lastPos: number = 0;
+    let lastPos: any = {};
     const hdStart = (e: TouchEvent) => {
       ax = {};
       const pt = getPoint(e);
@@ -52,18 +52,22 @@ export const useSwipe = () => {
         delta: 0,
         ttl: 0,
       });
-      console.log('start');
+      console.log('start', ax.start);
     };
 
     const hdMove = (e: TouchEvent) => {
       const pt = getPoint(e);
 
-      const direction = pt.pageY - lastPos > 0 ? -1 : 1;
+      const direction = pt.pageY - lastPos.y > 0 ? -1 : 1;
       const delta = pt.pageY - ax.start!.y;
       const ttl = Date.now() - ax.start!.ts;
-
+      const lastTtl = Date.now() - lastPos.ts;
+      const lastDelta = pt.pageY - lastPos.y;
       // console.log('moving =>', delta, direction, pt.pageY, lastPos);
-      lastPos = pt.pageY;
+      lastPos = {
+        y: pt.pageY,
+        ts: Date.now(),
+      };
 
       ax.moving = {
         x: pt.pageX,
@@ -74,9 +78,17 @@ export const useSwipe = () => {
       setSwipeStatus({
         status: 1,
         direction,
-        delta,
+        delta: isNaN(Math.abs(lastDelta)) ? 0 : Math.abs(lastDelta),
         ttl,
       });
+      console.log(
+        'moving =>',
+        pt.pageY,
+        direction,
+        isNaN(Math.abs(lastDelta)) ? 0 : Math.abs(lastDelta),
+        // Math.abs(lastDelta),
+        // lastTtl,
+      );
       // setlastPos(pt.pageY);
     };
 

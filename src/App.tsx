@@ -5,6 +5,12 @@ import './App.scss';
 import { useCallback, useEffect, useState } from 'react';
 
 const lastPP = [-100, 0, 100];
+const K_EXTENT = 3;
+const K_INITNBO = [
+  { y: -100, needHide: false },
+  { y: 0, needHide: false },
+  { y: 100, needHide: false },
+];
 
 function App() {
   const isSwipe = useSwipe();
@@ -29,11 +35,7 @@ function App() {
     },
   ]);
 
-  const [dbo, setdbo] = useState([
-    { y: -100, needHide: false },
-    { y: 0, needHide: false },
-    { y: 100, needHide: false },
-  ]);
+  const [dbo, setdbo] = useState(K_INITNBO);
 
   const rdCubeV3 = useCallback(() => {
     const _rdCubeV3 = () => {
@@ -55,28 +57,20 @@ function App() {
   }, [dbo]);
 
   useEffect(() => {
-    if (isSwipe.status === 2) {
-      setOffset(offset + isSwipe.direction);
+    if (isSwipe.status === 1) {
+      console.log('movingggg,', isSwipe.direction, isSwipe.delta);
+      console.log(dbo);
       const ndbo = dbo.map((el) => {
         let eltmp = el.y;
+        // console.log(el.y, isSwipe.delta);
+
         if (isSwipe.direction === 1) {
-          eltmp = el.y - 100;
+          eltmp = el.y - (isSwipe.delta * K_EXTENT * 100) / window.innerHeight;
         }
         if (isSwipe.direction === -1) {
-          eltmp = el.y + 100;
+          eltmp = el.y + (isSwipe.delta * K_EXTENT * 100) / window.innerHeight;
         }
-        if (eltmp === -200) {
-          return {
-            y: 100,
-            needHide: true,
-          };
-        }
-        if (eltmp === 200) {
-          return {
-            y: -100,
-            needHide: true,
-          };
-        }
+
         return {
           y: eltmp,
           needHide: false,
@@ -85,7 +79,46 @@ function App() {
       console.log(JSON.stringify(ndbo, null, 2));
       setdbo(ndbo);
     }
-  }, [isSwipe.status]);
+
+    if (isSwipe.status === 2) {
+      // 归元
+      console.log(dbo);
+      if (Math.abs(dbo[1].y) < 40) {
+        setdbo(K_INITNBO);
+      } else {
+        // 超过一定幅度则滑动
+        setOffset(offset + isSwipe.direction);
+        const ndbo = dbo.map((el) => {
+          let eltmp = el.y;
+          if (isSwipe.direction === 1) {
+            eltmp = el.y - 100;
+          }
+          if (isSwipe.direction === -1) {
+            eltmp = el.y + 100;
+          }
+          if (eltmp <= -200) {
+            return {
+              y: 100,
+              needHide: true,
+            };
+          }
+          if (eltmp >= 200) {
+            return {
+              y: -100,
+              needHide: true,
+            };
+          }
+          return {
+            y: eltmp,
+            needHide: false,
+          };
+        });
+        setdbo(ndbo);
+      }
+
+      // console.log(JSON.stringify(ndbo, null, 2));
+    }
+  }, [isSwipe.status, isSwipe.delta]);
 
   return (
     <div className="App t-bd">
