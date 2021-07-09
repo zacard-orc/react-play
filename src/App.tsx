@@ -36,8 +36,7 @@ function App() {
   ]);
 
   const rdCubeV3 = useCallback(() => {
-    const rdCubeV2 = () => {
-      // console.log('offset=>', offset, mod);
+    const _rdCubeV3 = () => {
       return dbo.map((el: any, idx: number) => {
         const dvel = colorList[idx];
 
@@ -52,22 +51,11 @@ function App() {
         );
       });
     };
-    return rdCubeV2();
+    return _rdCubeV3();
   }, [dbo]);
 
   useEffect(() => {
-    // 1:up,-1:down,2-undef
-    // const comPos =
-    //   lastPosTop -
-    //   (isSwipe.direction * Math.abs(isSwipe.delta) * 10) / window.screen.height;
-    // setPosTop(comPos);
-    // console.log(isSwipe.status);
     if (isSwipe.status === 2) {
-      // setPosTop(20);
-      // console.log(isSwipe.delta, isSwipe.delta / window.screen.height);
-      // const comPos =
-      //   lastPosTop + (isSwipe.delta * 100 * 2) / window.screen.height;
-      // console.log(comPos);offset
       setOffset(offset + isSwipe.direction);
       const ndbo = dbo.map((el) => {
         let eltmp = el.y;
