@@ -13,6 +13,7 @@ export const MouSq = ({ posTop, bgColor, dvName, show }: any) => {
         }
       }, 300);
     }
+    console.log(show);
   }, [show]);
 
   return (
