@@ -1,4 +1,4 @@
-import { createRef, useEffect, useRef, useState } from 'react';
+import { createRef, useEffect } from 'react';
 
 import './cube.scss';
 
@@ -23,7 +23,8 @@ export const MouSq = ({ posTop, bgColor, dvName, show }: any) => {
       style={{
         top: `${posTop}vh`,
         backgroundColor: bgColor,
-        display: show ? 'block' : 'none',
+        // display: show ? 'block' : 'none',
+        visibility: show ? 'visible' : 'hidden',
       }}
     >
       {dvName}

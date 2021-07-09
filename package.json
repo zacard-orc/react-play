@@ -73,7 +73,7 @@
     "postcss-px-to-viewport": "^1.1.1",
     "postcss-viewport-units": "^0.1.6",
     "prettier": "^2.2.1",
-    "rc-select": "^12.1.9",
+    "rc-select": "^13.0.0-alpha.0",
     "react-app-rewire-postcss": "^3.0.2",
     "react-app-rewired": "^2.1.8",
     "react-select": "^4.3.0",

@@ -35,52 +35,6 @@ function App() {
     { y: 100, needHide: false },
   ]);
 
-  const rdCube = () => {
-    const mod = offset % 3;
-    console.log(dbo);
-    // console.log('offset=>', offset, mod);
-    return colorList.map((el: any, idx: number) => {
-      let acPost = el.posTop - mod * 100;
-
-      // console.log('before =>', el.dvName, acPost);
-
-      let needShow = acPost > -200 && acPost < 200;
-      if (acPost === -200) {
-        acPost = 100;
-      }
-      if (acPost === -300) {
-        acPost = 0;
-      }
-
-      if (acPost === 200) {
-        acPost = -100;
-      }
-      if (acPost === 300) {
-        acPost = 0;
-      }
-
-      if (offset >= 3 && idx === 2 && mod === 0) {
-        needShow = false;
-      }
-
-      if (offset <= -3 && idx === 0 && mod === 0) {
-        needShow = false;
-      }
-
-      console.log('after =>', el.dvName, acPost, needShow);
-      lastPP[idx] = acPost;
-
-      return (
-        <MouSq
-          posTop={acPost}
-          dvName={el.dvName}
-          bgColor={el.bgColor}
-          show={needShow}
-          key={idx}
-        />
-      );
-    });
-  };
   const rdCubeV3 = useCallback(() => {
     const rdCubeV2 = () => {
       // console.log('offset=>', offset, mod);
