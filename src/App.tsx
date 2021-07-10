@@ -11,36 +11,36 @@ const K_INITNBO = [
   { y: 0, needHide: false },
   { y: 100, needHide: false },
 ];
+const K_COLORLIST = [
+  {
+    dvName: '0-紫色',
+    bgColor: '#C8AEFB',
+    posTop: -100,
+  },
+  {
+    dvName: '1-粉红',
+    bgColor: '#FFC2C2',
+    posTop: 0,
+  },
+  {
+    dvName: '2-蓝色',
+    bgColor: '#6495ed',
+    posTop: 100,
+  },
+];
 
 function App() {
   const isSwipe = useSwipe();
   // const [lastPosTop, setPosTop] = useState<number>(0);
-  const [lastPosTop, setPosTop] = useState<number>(0);
+  const [lastPos, setLastPos] = useState(K_INITNBO);
   const [offset, setOffset] = useState<number>(0);
-  const [colorList, setColorList] = useState<any>([
-    {
-      dvName: '0-紫色',
-      bgColor: '#C8AEFB',
-      posTop: -100,
-    },
-    {
-      dvName: '1-粉红',
-      bgColor: '#FFC2C2',
-      posTop: 0,
-    },
-    {
-      dvName: '2-蓝色',
-      bgColor: '#6495ed',
-      posTop: 100,
-    },
-  ]);
 
   const [dbo, setdbo] = useState(K_INITNBO);
 
   const rdCubeV3 = useCallback(() => {
     const _rdCubeV3 = () => {
       return dbo.map((el: any, idx: number) => {
-        const dvel = colorList[idx];
+        const dvel = K_COLORLIST[idx];
 
         return (
           <MouSq
@@ -58,11 +58,8 @@ function App() {
 
   useEffect(() => {
     if (isSwipe.status === 1) {
-      console.log('movingggg,', isSwipe.direction, isSwipe.delta);
-      console.log(dbo);
       const ndbo = dbo.map((el) => {
         let eltmp = el.y;
-        // console.log(el.y, isSwipe.delta);
 
         if (isSwipe.direction === 1) {
           eltmp = el.y - (isSwipe.delta * K_EXTENT * 100) / window.innerHeight;
@@ -76,19 +73,19 @@ function App() {
           needHide: false,
         };
       });
-      console.log(JSON.stringify(ndbo, null, 2));
       setdbo(ndbo);
     }
 
     if (isSwipe.status === 2) {
       // 归元
-      console.log(dbo);
-      if (Math.abs(dbo[1].y) < 40) {
-        setdbo(K_INITNBO);
+      console.log(dbo[1]);
+      if (Math.abs(dbo[1].y) < 20) {
+        setdbo(lastPos);
       } else {
         // 超过一定幅度则滑动
         setOffset(offset + isSwipe.direction);
-        const ndbo = dbo.map((el) => {
+        // console.log(lastPos);
+        const ndbo = lastPos.map((el) => {
           let eltmp = el.y;
           if (isSwipe.direction === 1) {
             eltmp = el.y - 100;
@@ -113,6 +110,7 @@ function App() {
             needHide: false,
           };
         });
+        setLastPos(ndbo);
         setdbo(ndbo);
       }
 
