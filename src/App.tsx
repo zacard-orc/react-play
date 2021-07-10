@@ -41,6 +41,7 @@ function App() {
     const _rdCubeV3 = () => {
       return dbo.map((el: any, idx: number) => {
         const dvel = K_COLORLIST[idx];
+        // console.log(el.y);
 
         return (
           <MouSq
@@ -49,6 +50,8 @@ function App() {
             bgColor={dvel.bgColor}
             show={!el.needHide}
             key={idx}
+            posIdx={idx}
+            play={el.y === 0}
           />
         );
       });
@@ -78,8 +81,8 @@ function App() {
 
     if (isSwipe.status === 2) {
       // 归元
-      console.log(dbo[1]);
-      if (Math.abs(dbo[1].y) < 20) {
+      console.log((Math.abs(dbo[1].y) * 100) / window.innerHeight);
+      if ((Math.abs(dbo[1].y) * 100) / window.innerHeight < 8) {
         setdbo(lastPos);
       } else {
         // 超过一定幅度则滑动
@@ -119,7 +122,7 @@ function App() {
   }, [isSwipe.status, isSwipe.delta]);
 
   return (
-    <div className="App t-bd">
+    <div className="App">
       <div style={{ position: 'absolute' }}>
         <div>status: {isSwipe.status}</div>
         <div>delta: {Math.abs(isSwipe.delta)}</div>
@@ -127,6 +130,7 @@ function App() {
         <div>lastPosTop: {lastPP.join(', ')}</div>
         <div>offset: {offset}</div>
       </div>
+      {/*<div className="Guide">公告</div>*/}
       <div className="cube-ct">{rdCubeV3()}</div>
     </div>
   );
