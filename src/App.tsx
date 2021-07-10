@@ -5,7 +5,7 @@ import './App.scss';
 import { useCallback, useEffect, useState } from 'react';
 
 const lastPP = [-100, 0, 100];
-const K_EXTENT = 3;
+const K_EXTENT = 15;
 const K_INITNBO = [
   { y: -100, needHide: false },
   { y: 0, needHide: false },
@@ -81,8 +81,8 @@ function App() {
 
     if (isSwipe.status === 2) {
       // 归元
-      console.log((Math.abs(dbo[1].y) * 100) / window.innerHeight);
-      if ((Math.abs(dbo[1].y) * 100) / window.innerHeight < 8) {
+      // console.log((Math.abs(dbo[1].y) * 100) / window.innerHeight);
+      if ((Math.abs(dbo[1].y) * 100) / window.innerHeight < 5) {
         setdbo(lastPos);
       } else {
         // 超过一定幅度则滑动

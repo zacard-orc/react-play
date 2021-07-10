@@ -81,14 +81,14 @@ export const useSwipe = () => {
         delta: isNaN(Math.abs(lastDelta)) ? 0 : Math.abs(lastDelta),
         ttl,
       });
-      // console.log(
-      //   'moving =>',
-      //   pt.pageY,
-      //   direction,
-      //   isNaN(Math.abs(lastDelta)) ? 0 : Math.abs(lastDelta),
-      //   // Math.abs(lastDelta),
-      //   // lastTtl,
-      // );
+      console.log(
+        'moving =>',
+        pt.pageY,
+        direction,
+        isNaN(Math.abs(lastDelta)) ? 0 : Math.abs(lastDelta),
+        // Math.abs(lastDelta),
+        // lastTtl,
+      );
       // setlastPos(pt.pageY);
     };
 
