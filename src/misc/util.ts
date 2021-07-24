@@ -24,3 +24,15 @@ export function off<T extends Window | Document | HTMLElement | EventTarget>(
 
 export const isBrowser = typeof window !== 'undefined';
 export const hasNavigator = typeof navigator !== 'undefined';
+
+const bb = [1, 2, 3];
+
+// multi,add
+const add = (x: number): number => x + 10;
+const multiply = (x: number): number => x * 10;
+const compose = function () {
+  const args = [].slice.apply(arguments);
+  return function (x: number) {
+    return args.reduceRight((res, cb: Function) => cb(res), x);
+  };
+};
