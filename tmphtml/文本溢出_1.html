@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+  <meta charset='UTF-8'>
+  <title>Title</title>
+</head>
+<body>
+<div class='sf'>12333312312123123311231231312313888102381231231</div>
+
+<div class="test">
+  <div>
+    123456454654548787545487454544554545123456454654548787545487454544554545123456454654548787545487454544554545123456454654548787545487454544554545
+  </div>
+</div>
+</body>
+<style>
+  .sf{
+      width: 100px;
+      max-height: 80px;
+      border: 1px solid red;
+      overflow: hidden; /* 超出隐藏 */
+      text-overflow: ellipsis;/* 超出部分省略号 */
+  }
+
+  .test {
+      width: 200px;
+      border: 1px solid orange;
+  }
+  .test div{
+      /*width: 200px;*/
+      word-break: break-all;
+      text-overflow: ellipsis;
+      display: -webkit-box; /** 对象作为伸缩盒子模型显示 **/
+      /* autoprefixer: off */
+      -webkit-box-orient: vertical;
+      /* autoprefixer: on *//** 设置或检索伸缩盒对象的子元素的排列方式 **/
+      -webkit-line-clamp: 3; /** 显示的行数 **/
+      overflow: hidden; /** 隐藏超出的内容 **/
+  }
+</style>
+</html>
