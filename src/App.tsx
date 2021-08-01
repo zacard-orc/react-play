@@ -38,6 +38,20 @@ const cubeInit = [
     h: 250,
     zIndex: 120,
   },
+  {
+    x: 500,
+    y: 100,
+    w: 150,
+    h: 50,
+    zIndex: 130,
+  },
+  {
+    x: 400,
+    y: 200,
+    w: 300,
+    h: 70,
+    zIndex: 140,
+  },
 ];
 
 function App() {
@@ -79,24 +93,27 @@ function App() {
     [touchStatus],
   );
 
-  const onTouchMove = (e: any) => {
-    if (touchStatus === TouchStatus.ing && hitIdx !== undefined) {
-      const [mx, my] = getPoint(e);
-      const cvDvr: Array<IRectBase> = [];
-      Object.assign(cvDvr, dvr);
-      let cvHit: IRectBase = cvDvr[hitIdx as number];
-      if (cvHit) {
-        cvHit = {
-          ...cvHit,
-          x: mx - cvHit.w / 2,
-          y: my - cvHit.h / 2,
-        };
+  const onTouchMove = useCallback(
+    (e: any) => {
+      if (touchStatus === TouchStatus.ing && hitIdx !== undefined) {
+        const [mx, my] = getPoint(e);
+        const cvDvr: Array<IRectBase> = [];
+        Object.assign(cvDvr, dvr);
+        let cvHit: IRectBase = cvDvr[hitIdx as number];
+        if (cvHit) {
+          cvHit = {
+            ...cvHit,
+            x: mx - cvHit.w / 2,
+            y: my - cvHit.h / 2,
+          };
 
-        cvDvr[hitIdx as number] = cvHit;
-        setDvr(cvDvr);
+          cvDvr[hitIdx as number] = cvHit;
+          setDvr(cvDvr);
+        }
       }
-    }
-  };
+    },
+    [touchStatus],
+  );
   const onTouchUp = (e: any) => {
     console.log('up', getPoint(e));
     setTouchStatus(TouchStatus.no);
@@ -128,6 +145,13 @@ function App() {
         bgColor={'lightseagreen'}
         onChange={() => {}}
       />
+      <FdRect
+        {...dvr[3]}
+        text={'004'}
+        bgColor={'greenyellow'}
+        onChange={() => {}}
+      />
+      <FdRect {...dvr[4]} text={'005'} bgColor={'pink'} onChange={() => {}} />
     </div>
   );
 }
