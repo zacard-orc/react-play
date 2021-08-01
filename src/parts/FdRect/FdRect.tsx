@@ -9,7 +9,7 @@ import {
 
 import { IRectComponent } from '~/types/rect';
 
-const FdRect = ({ x, y, w, h, zIndex, text }: IRectComponent) => {
+const FdRect = ({ x, y, w, h, zIndex, text, bgColor }: IRectComponent) => {
   const rectRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -37,6 +37,7 @@ const FdRect = ({ x, y, w, h, zIndex, text }: IRectComponent) => {
         width: w,
         height: h,
         zIndex,
+        backgroundColor: bgColor,
       }}
     >
       {text}

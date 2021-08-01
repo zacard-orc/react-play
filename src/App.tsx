@@ -16,22 +16,54 @@ enum TouchStatus {
   no,
 }
 
-function App() {
-  const [touchStatus, setTouchStatus] = useState<TouchStatus>(TouchStatus.no);
-  const [dvr, setDvr] = useState<IRectBase>({
+const cubeInit = [
+  {
     x: 0,
     y: 0,
     w: 100,
     h: 70,
     zIndex: 100,
-  });
+  },
+  {
+    x: 200,
+    y: 300,
+    w: 200,
+    h: 50,
+    zIndex: 110,
+  },
+  {
+    x: 100,
+    y: 300,
+    w: 100,
+    h: 250,
+    zIndex: 120,
+  },
+];
 
-  const [hitdv, setHitDv] = useState<IRectBase | undefined>(undefined);
+function App() {
+  const [touchStatus, setTouchStatus] = useState<TouchStatus>(TouchStatus.no);
+  const [dvr, setDvr] = useState<Array<IRectBase>>(cubeInit);
 
-  const getTopCube = (foucs: Array<number>, cubeList: Array<IRectBase>) => {
-    return cubeList.find((el) => {
-      const [fx, fy] = foucs;
-      return el.x < fx && fx < el.x + el.w && el.y < fy && fy < el.y + el.h;
+  // const [hitdv, setHitDv] = useState<IRectBase | undefined>(undefined);
+  const [hitIdx, setHitIdx] = useState<Number | undefined>(undefined);
+
+  const getTopCube = (
+    foucs: Array<number>,
+    cubeList: Array<IRectBase>,
+  ): number => {
+    const cvCubeList: Array<IRectBase> = [];
+    Object.assign(cvCubeList, cubeList);
+    const _hdv = cvCubeList
+      .sort((a: IRectBase, b: IRectBase) => {
+        return b.zIndex - a.zIndex;
+      })
+      .find((el) => {
+        const [fx, fy] = foucs;
+        return el.x < fx && fx < el.x + el.w && el.y < fy && fy < el.y + el.h;
+      });
+
+    return cubeList.findIndex((el) => {
+      return el.zIndex === _hdv?.zIndex;
     });
   };
 
@@ -39,32 +71,30 @@ function App() {
     (e: any) => {
       console.log('down', getPoint(e));
       setTouchStatus(TouchStatus.ing);
-      const hit = getTopCube(getPoint(e), [dvr]);
-      // console.log('hit', hit);
+      const hitIdx = getTopCube(getPoint(e), dvr);
+      console.log('hit', hitIdx);
 
-      setHitDv(hit);
+      setHitIdx(hitIdx);
     },
     [touchStatus],
   );
-  //
-  // const onTouchDown = (e: any) => {
-  //   console.log('down', getPoint(e));
-  //   setTouchStatus(TouchStatus.ing);
-  //   const hit = getTopCube(getPoint(e), [dvr]);
-  //   console.log('hit', hit);
-  //
-  //   setHitDv(hit);
-  // };
 
   const onTouchMove = (e: any) => {
-    if (touchStatus === TouchStatus.ing && hitdv) {
-      // console.log(hitdv);
+    if (touchStatus === TouchStatus.ing && hitIdx !== undefined) {
       const [mx, my] = getPoint(e);
-      setDvr({
-        ...dvr,
-        x: mx - dvr.w / 2,
-        y: my - dvr.h / 2,
-      });
+      const cvDvr: Array<IRectBase> = [];
+      Object.assign(cvDvr, dvr);
+      let cvHit: IRectBase = cvDvr[hitIdx as number];
+      if (cvHit) {
+        cvHit = {
+          ...cvHit,
+          x: mx - cvHit.w / 2,
+          y: my - cvHit.h / 2,
+        };
+
+        cvDvr[hitIdx as number] = cvHit;
+        setDvr(cvDvr);
+      }
     }
   };
   const onTouchUp = (e: any) => {
@@ -80,7 +110,24 @@ function App() {
       onMouseMove={onTouchMove}
       onMouseDown={onTouchDown}
     >
-      <FdRect {...dvr} text={'1'} onChange={() => {}} />
+      <FdRect
+        {...dvr[0]}
+        text={'001'}
+        bgColor={'orangered'}
+        onChange={() => {}}
+      />
+      <FdRect
+        {...dvr[1]}
+        text={'002'}
+        bgColor={'dodgerblue'}
+        onChange={() => {}}
+      />
+      <FdRect
+        {...dvr[2]}
+        text={'003'}
+        bgColor={'lightseagreen'}
+        onChange={() => {}}
+      />
     </div>
   );
 }

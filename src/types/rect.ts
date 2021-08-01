@@ -8,5 +8,6 @@ export interface IRectBase {
 
 export interface IRectComponent extends IRectBase {
   text: string;
+  bgColor: string;
   onChange: () => void;
 }
