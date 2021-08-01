@@ -127,31 +127,18 @@ function App() {
       onMouseMove={onTouchMove}
       onMouseDown={onTouchDown}
     >
-      <FdRect
-        {...dvr[0]}
-        text={'001'}
-        bgColor={'orangered'}
-        onChange={() => {}}
-      />
-      <FdRect
-        {...dvr[1]}
-        text={'002'}
-        bgColor={'dodgerblue'}
-        onChange={() => {}}
-      />
-      <FdRect
-        {...dvr[2]}
-        text={'003'}
-        bgColor={'lightseagreen'}
-        onChange={() => {}}
-      />
-      <FdRect
-        {...dvr[3]}
-        text={'004'}
-        bgColor={'greenyellow'}
-        onChange={() => {}}
-      />
-      <FdRect {...dvr[4]} text={'005'} bgColor={'pink'} onChange={() => {}} />
+      {dvr.map((el, idx) => (
+        <FdRect
+          {...el}
+          text={`00${idx}`}
+          bgColor={
+            ['orangered', 'dodgerblue', 'lightseagreen', 'greenyellow', 'pink'][
+              idx
+            ]
+          }
+          onChange={() => {}}
+        />
+      ))}
     </div>
   );
 }
