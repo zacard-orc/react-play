@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+  <meta charset='UTF-8'>
+  <title>Title</title>
+</head>
+<body>
+<div class='sf'>3333</div>
+
+<div class='test'>
+  <div>
+    123123
+  </div>
+</div>
+</body>
+<style>
+
+</style>
+<script type='text/javascript'>
+  const bytes = new Uint8Array([65, 66, 67]);
+  let storeData = ''
+  for (let i = 0; i < bytes.length; i++) {
+    storeData += String.fromCharCode(bytes[i]);
+  }
+  console.log(bytes);
+  console.log(storeData);
+
+  const imgCtString = "data:image/png;base64," + window.btoa(storeData);
+  console.log(imgCtString);
+
+</script>
+</html>
