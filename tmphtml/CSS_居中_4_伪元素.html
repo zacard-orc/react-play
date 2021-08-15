@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+  <meta charset='UTF-8'>
+  <title>Title</title>
+</head>
+<style>
+    .ct {
+        width: 300px;
+        height: 200px;
+        border: 1px solid orange;
+        display: block;
+        text-align: center;
+    }
+
+    /* 用css 实现虚拟dom映射真实dom */
+    .ct:before {
+        content: '333';
+        display: inline-block;
+        vertical-align: middle;
+        border: 1px solid grey;
+        height: 100%;
+    }
+    .ct:after{
+        content: '444';
+        border: 1px solid grey;
+        height: 100%;
+
+    }
+
+    .core {
+        background-color:#C8AEFB;
+        width: 50%;
+        height: 50%;
+        display: inline-block;
+        vertical-align: middle;
+    }
+</style>
+<body>
+  <div class='ct'>
+    <div class='core'>core</div>
+  </div>
+
+
+
+</body>
+</html>

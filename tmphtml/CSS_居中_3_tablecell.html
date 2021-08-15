@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+  <meta charset='UTF-8'>
+  <title>Title</title>
+</head>
+<style>
+
+
+    .ct {
+        width: 300px;
+        height: 200px;
+        border: 1px solid orange;
+        display: table-cell;
+        text-align: center;
+        vertical-align: middle;
+    }
+
+    .core{
+        background-color: #C8AEFB;
+        color: #333333;
+    }
+    .core-1{
+        width: 100%;
+    }
+    .core-2{
+        width: 75%;
+    }
+    .core-3{
+        width: 50%;
+    }
+    .core-4{
+        width: 25%;
+    }
+    .inb{
+        display: inline-block;
+    }
+
+
+</style>
+<body>
+<div style='display: table'>
+  <div class='ct'>
+    <!--  全部靠左对齐-->
+    <div class='core core-1'>core-1</div>
+    <div class='core core-2'>core-2</div>
+    <div class='core core-3'>core-3</div>
+    <div class='core core-4'>core-4</div>
+  </div>
+</div>
+
+<div>
+  <div class='ct'>
+    <!--  全部居中BUG对齐-->
+    <div class='core core-1'>core-1</div>
+    <div class='core core-2 inb'>core-2</div>
+    <div class='core core-3 inb'>core-3</div>
+    <div>
+      <div class='core core-4 inb'>core-4</div>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>

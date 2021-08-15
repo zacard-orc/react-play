@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+  <meta charset='UTF-8'>
+  <title>Title</title>
+</head>
+<style>
+    .ct {
+        width: 300px;
+        height: 200px;
+        display: grid;
+        grid-template-columns: repeat(3, 33.3%);
+        grid-template-rows: repeat(3, 33.3%);
+        grid-template-areas:
+                'a b c'
+                'd e f'
+                'g h i';
+        border: 1px dashed orange;
+    }
+
+    .core {
+        background-color: #C8AEFB;
+        color: #333333;
+        grid-area: e;
+    }
+
+    .core-u {
+        width: 100%;
+    }
+
+    .core-hit {
+
+    }
+
+
+</style>
+<body>
+<div class='ct'>
+  <div class='core core-1'>core-1</div>
+</div>
+
+
+</body>
+</html>
