@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Document</title>
+  <style>
+    .bar{
+        /*float: left;*/
+        width: 200px;
+        height: 80px;
+        background-color: #C8AEFB;
+        opacity: 0.7;
+    }
+    .bar-2 {
+        background-color: orange;
+        width: 500px;
+        height: 80px;
+        opacity: 0.7;
+        float: left;
+    }
+    .bar-3 {
+        background-color: lightblue;
+        width: 300px;
+        height: 100px;
+        opacity: 0.7;
+        /*float: right;*/
+    }
+    .bar-4 {
+        background-color: #f88b8b;
+        width: 250px;
+        height: 130px;
+        opacity: 0.7;
+        float: left;
+    }
+  </style>
+</head>
+<body>
+<div class='bar'>div1</div>
+<!--至上而下扫描下来，优先靠边-->
+<div class='bar-2'>div2</div>
+<div class='bar-3'>div3</div>
+<div class='bar-4'>div4</div>
+</body>
+</html>

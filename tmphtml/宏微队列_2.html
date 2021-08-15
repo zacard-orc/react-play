@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+  <meta charset='UTF-8'>
+  <title>Title</title>
+</head>
+<style>
+    .container {
+        overflow: hidden;
+        width: 100px;
+        height: 100px;
+        background-color: #fcc6d6;
+    }
+
+    .box{
+        width: 40px;
+        height: 200px;
+        background-color: #9D6EF5;
+    }
+
+</style>
+<body>
+
+<div class="container">
+  <div class='box'></div>
+</div>
+</body>
+<script>
+  console.log(1)
+
+  setTimeout(()=>{
+    console.log(2)
+    Promise.resolve(21).then(console.log)
+  },0)
+
+  Promise.resolve(3).then(console.log)
+  Promise.reject(4).then(console.log).catch(console.error)
+
+  console.log(5)
+
+  setTimeout(()=>{
+    console.log(6)
+    Promise.resolve(61).then(console.log)
+  },0)
+</script>
+</html>

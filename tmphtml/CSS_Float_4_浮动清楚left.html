@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Document</title>
+  <style>
+    .bar{
+        /*float: left;*/
+        width: 200px;
+        height: 80px;
+        background-color: #C8AEFB;
+        opacity: 0.7;
+        float: left;
+    }
+    .bar-2 {
+        background-color: orange;
+        width: 150px;
+        height: 80px;
+        opacity: 0.7;
+        float: left;
+        /* 1，2浮动 =》 2不浮动，所以clear作用自己，让自己左边没有浮动元素 =》 让自己顶到标准行最前面*/
+        clear:left;
+    }
+    .bar-3 {
+        background-color: lightblue;
+        width: 130px;
+        height: 100px;
+        opacity: 0.7;
+        /*float: right;*/
+    }
+    .bar-4 {
+        background-color: #f88b8b;
+        width: 250px;
+        height: 130px;
+        opacity: 0.7;
+        /*float: left;*/
+    }
+  </style>
+</head>
+<body>
+<div class='bar'>div1</div>
+<!--至上而下扫描下来，优先靠边-->
+<div class='bar-2'>div2</div>
+<div class='bar-3'>div3</div>
+<div class='bar-4'>div4</div>
+</body>
+</html>
