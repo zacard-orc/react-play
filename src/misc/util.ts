@@ -36,3 +36,12 @@ const compose = function () {
     return args.reduceRight((res, cb: Function) => cb(res), x);
   };
 };
+
+// prwait
+export const prWait = (tmout: number): Promise<boolean> => {
+  return new Promise((resolve) => {
+    setTimeout(() => {
+      resolve(true);
+    }, tmout);
+  });
+};

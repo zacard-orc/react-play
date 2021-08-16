@@ -17,28 +17,12 @@ function Idxmm() {
   );
 }
 
-function Test() {
-  return <div className="demo">XXXX上线～</div>;
-}
-
 function App() {
   // @ts-ignore
   // const OtherCom = lazy(() => import('./cube/SusExp001'));
   const OtherCom = lazy(() => {
     return import('./cube/SusExp001');
   });
-
-  const LazyCC = lazy(
-    () =>
-      new Promise((resolve) => {
-        setTimeout(() => {
-          resolve({
-            // @ts-ignore
-            default: () => <Test />,
-          });
-        }, 1000);
-      }),
-  );
 
   return (
     <div>
@@ -52,15 +36,6 @@ function App() {
         }
       >
         <OtherCom />
-      </Suspense>
-      <Suspense
-        fallback={
-          <div>
-            <h1 style={{ color: 'red' }}>Promise Loading</h1>
-          </div>
-        }
-      >
-        <LazyCC />
       </Suspense>
     </div>
   );
