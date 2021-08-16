@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+  <meta charset='UTF-8' />
+  <meta name='viewport' content='width=device-width' />
+  <title>Document</title>
+  <style>
+
+      .bar1 {
+          width: 200px;
+          height: 1px;
+          background: #000;
+          transform: scaleY(0.5);
+          transform-origin: 0 0;
+          overflow: hidden;
+      }
+
+      .bar2 {
+          margin-top: 20px;
+          width: 200px;
+          height: 50px;
+          background: #C8AEFB;
+          opacity: 0.5;
+          border-radius: 20px;
+      }
+
+      .border {
+          border: 1px solid #000
+      }
+
+      @media screen and (-webkit-min-device-pixel-ratio: 2) {
+          .border {
+              border: 0.5px solid #000
+          }
+      }
+
+      @media screen and (-webkit-min-device-pixel-ratio: 3) {
+          .border {
+              border: 0.333333px solid #000
+          }
+      }
+
+      .bar3 {
+          margin-top: 20px;
+          position: relative;
+          height: 20px;
+          width: 300px;
+          background-color: #f6a5a5;
+          border-radius: 20px;
+      }
+
+      .bar3:before {
+          content: " ";
+          position: absolute;
+          left: 0;
+          top: 0;
+          width: 100%;
+          height: 1px;
+          background-color: #000;
+          -webkit-transform-origin: 0 0;
+          transform-origin: 0 0;
+          -webkit-transform: scaleY(0.33);
+          transform: scaleY(0.33);
+      }
+
+      .bar4 {
+          margin-top: 20px;
+      }
+
+      p {
+          background: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg'><line x1='0' y1='100%' x2='100%' y2='100%' stroke='red' /></svg>");
+      }
+
+      .bar5 {
+          margin-top: 20px;
+          height: 100px;
+          background: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg'><rect width='100%' height='100%' fill='none' stroke='red' /></svg>");
+      }
+
+      .bar6 {
+          margin-top: 20px;
+          height: 100px;
+          border-radius:5px;
+          background: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg'><rect width='100%' height='100%' rx='5' fill='none' stroke='red' /></svg>");
+      }
+      .bar6 .bar6son {
+          position: relative;
+          width: 100%;
+          background-color: lightblue;
+          height: 100%;
+          opacity: 0.5;
+      }
+
+
+
+  </style>
+</head>
+<body>
+<div>height 1px 自我dpr折叠</div>
+<div class='bar1'>自我折叠</div>
+<div class='bar2 border'>仅用在iOS，mediaquery+dpr+scale，边框</div>
+
+<div>伪元素1px</div>
+<div class='bar3'></div>
+
+<div class='bar4'>
+  <svg height='200px' viewBox='0 0 200 200'>
+    <rect x='0' y='0' width='100%' height='100%' fill='none' stroke-width='1' stroke='#189533' />
+  </svg>
+  svg
+</div>
+<p>svg p line</p>
+
+<div class='bar5'>svg div border</div>
+<div class='bar6'>
+  <div class='bar6son'>svg div border+radius</div>
+</div>
+</body>
+</html>
