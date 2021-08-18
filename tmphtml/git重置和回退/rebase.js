@@ -10,3 +10,4 @@ console.log('basdfa');
 console.log('rect3');
 console.log('rect4');
 console.log('rect5');
+console.log('rect6');
