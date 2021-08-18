@@ -4,4 +4,4 @@ console.log(a);
 
 const b = 1;
 
-console.log(ffffff);
+console.log(bbbb);
