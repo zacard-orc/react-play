@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+  <meta charset='UTF-8'>
+  <title>Title</title>
+</head>
+<body>
+
+</body>
+<script>
+  console.log(v1)
+  var v1 = 100;
+
+  function foo(){
+    console.log('foo before',v1)
+    var v1 = 200
+    console.log('foo aft',v1)
+  }
+
+  foo();
+  console.log('end v1' ,v1)
+
+  console.log(bar)
+
+  function bar(){
+    console.log(1)
+  }
+
+  foo2();
+
+  var foo2;
+
+  function foo2(){
+    console.log('foo2-1')
+  }
+
+  foo2 = function(){
+    console.log('foo2-2')
+  }
+
+  foo3();
+
+  var a = true;
+
+  if(a){
+    function foo3(){console.log('foo3-1')}
+  } else{
+    function foo3(){console.log('foo3-2')}
+  }
+
+
+
+</script>
+</html>
