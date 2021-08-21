@@ -1,0 +1,16 @@
+{
+  "name": "webpack_1_4.0",
+  "version": "1.0.0",
+  "description": "",
+  "main": "./src/index.js",
+  "scripts": {
+    "dev": "webpack --config ./webpack.config.js"
+  },
+  "author": "zacard.lin",
+  "license": "ISC",
+  "devDependencies": {
+    "webpack": "^4.46.0",
+    "webpack-cli": "^4.8.0",
+    "clean-webpack-plugin": "^4.0.0-alpha.0"
+  }
+}
