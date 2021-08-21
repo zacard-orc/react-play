@@ -1,4 +1,6 @@
 const path = require('path');
+const firstPlugin = require('./wp_plugin/helloPg');
+
 module.exports = {
   mode: 'development',
   entry: path.resolve(__dirname, './src/index.js'),
@@ -14,4 +16,5 @@ module.exports = {
       },
     ],
   },
+  plugins: [new firstPlugin()],
 };
