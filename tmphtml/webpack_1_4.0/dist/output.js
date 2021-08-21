@@ -94,7 +94,7 @@
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _parts_util__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./parts/util */ \"./src/parts/util.js\");\n\n\nObject(_parts_util__WEBPACK_IMPORTED_MODULE_0__[\"sum\"])(10, 20);\n\n\n//# sourceURL=webpack:///./src/index.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _parts_util__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./parts/util */ \"./src/parts/util.js\");\n\nObject(_parts_util__WEBPACK_IMPORTED_MODULE_0__[\"sum\"])(10, 20);\n\n//# sourceURL=webpack:///./src/index.js?");
 
 /***/ }),
 
@@ -106,7 +106,7 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _par
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"sum\", function() { return sum; });\nconst sum = (a, b) => {\n  const c = a + b;\n  console.log(c);\n  return c;\n};\n\n\n//# sourceURL=webpack:///./src/parts/util.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"sum\", function() { return sum; });\nconst sum = (a, b) => {\n  const c = a + b;\n  console.log(\"filename: (sum, 3)\", c);\n  return c;\n};\n\n//# sourceURL=webpack:///./src/parts/util.js?");
 
 /***/ })
 

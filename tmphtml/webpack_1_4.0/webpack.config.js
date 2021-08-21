@@ -6,4 +6,12 @@ module.exports = {
     filename: 'output.js',
     path: path.resolve(__dirname, './dist'),
   },
+  module: {
+    rules: [
+      {
+        test: /\.js$/,
+        use: [path.resolve(__dirname, './wp_plugin/opsConsole.js')],
+      },
+    ],
+  },
 };
