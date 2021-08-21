@@ -106,7 +106,7 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _par
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"sum\", function() { return sum; });\nconst sum = (a, b) => {\n  const c = a + b;\n  console.log(\"filename: (sum, 3)\", c);\n  return c;\n};\n\n//# sourceURL=webpack:///./src/parts/util.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"sum\", function() { return sum; });\nconst sum = (a, b) => {\n  const c = a + b;\n  console.log(\"[src/parts/util.js, sum, 3]\", c);\n  return c;\n};\n\n//# sourceURL=webpack:///./src/parts/util.js?");
 
 /***/ })
 
