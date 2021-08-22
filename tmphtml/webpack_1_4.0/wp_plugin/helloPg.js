@@ -4,6 +4,9 @@ class firstPlugin {
   }
   apply(compiler) {
     compiler.plugin('emit', (compilation, callback) => {
+      console.log('wpg ev emit');
+      console.log(compilation);
+
       let str = '';
       for (let filename in compilation.assets) {
         str += `文件:${filename}  大小${compilation.assets[filename][
