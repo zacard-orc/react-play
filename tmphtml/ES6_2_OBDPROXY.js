@@ -32,7 +32,7 @@ Object.defineProperty(obj.b, 'hello', {
   get: () => {
     console.log('hook get');
     // const v = Reflect.get(obj.b, 'hello');
-    console.log(v);
+    // console.log(v);
 
     return obj.b._hello;
   },
@@ -65,11 +65,11 @@ console.log('---------');
 const handler = {
   get: function (obj, prop) {
     const v = Reflect.get(obj, prop);
-    console.log('proxy get');
+    console.log('proxy get =>', prop);
     return v; // 返回obj[prop]
   },
   set(obj, prop, value) {
-    console.log('proxy set');
+    console.log('proxy set =>', prop, value);
     return Reflect.set(obj, prop, value); //设置成功返回true
   },
 };
@@ -77,3 +77,8 @@ const po1 = new Proxy(obj, handler);
 po1._a = '555';
 po1.nb = '666';
 console.log(po1._a);
+
+console.log('-------');
+const po2 = new Proxy([1, 2, 3, 4], handler);
+
+po2.push('bbbb');
