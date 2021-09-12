@@ -135,13 +135,13 @@ function importFromBelow() {
     const newChildInstances = [];
     const count = Math.max(childInstances.length, nextChildElements.length);
     for (let i = 0; i < count; i++) {
-      if (window.CP.shouldStopExecution(0)) break;
+      // if (window.CP.shouldStopExecution(0)) break;
       const childInstance = childInstances[i];
       const childElement = nextChildElements[i];
       const newChildInstance = reconcile(dom, childInstance, childElement);
       newChildInstances.push(newChildInstance);
     }
-    window.CP.exitedLoop(0);
+    // window.CP.exitedLoop(0);
     return newChildInstances.filter((instance) => instance != null);
   }
 

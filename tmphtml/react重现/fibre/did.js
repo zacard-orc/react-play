@@ -3,11 +3,11 @@ const Didact = importFromBelow();
 
 const stories = [
   { name: 'Didact introduction', url: 'http://bit.ly/2pX7HNn' },
-  { name: 'Rendering DOM elements ', url: 'http://bit.ly/2qCOejH' },
-  { name: 'Element creation and JSX', url: 'http://bit.ly/2qGbw8S' },
-  { name: 'Instances and reconciliation', url: 'http://bit.ly/2q4A746' },
-  { name: 'Components and state', url: 'http://bit.ly/2rE16nh' },
-  { name: 'Fiber: Incremental reconciliation', url: 'http://bit.ly/2gaF1sS' },
+  // { name: 'Rendering DOM elements ', url: 'http://bit.ly/2qCOejH' },
+  // { name: 'Element creation and JSX', url: 'http://bit.ly/2qGbw8S' },
+  // { name: 'Instances and reconciliation', url: 'http://bit.ly/2q4A746' },
+  // { name: 'Components and state', url: 'http://bit.ly/2rE16nh' },
+  // { name: 'Fiber: Incremental reconciliation', url: 'http://bit.ly/2gaF1sS' },
 ];
 
 class App extends Didact.Component {
@@ -175,7 +175,7 @@ function importFromBelow() {
   const HOST_ROOT = 'root';
 
   // Effect tags
-  const PLACEMENT = 1;
+  const PLACEMENT = 1; //create
   const DELETION = 2;
   const UPDATE = 3;
 
@@ -218,10 +218,10 @@ function importFromBelow() {
       resetNextUnitOfWork();
     }
     while (nextUnitOfWork) {
-      if (window.CP.shouldStopExecution(0)) break;
+      // if (window.CP.shouldStopExecution(0)) break;
       nextUnitOfWork = performUnitOfWork(nextUnitOfWork);
     }
-    window.CP.exitedLoop(0);
+    // window.CP.exitedLoop(0);
     if (pendingCommit) {
       commitAllWork(pendingCommit);
     }
@@ -254,10 +254,10 @@ function importFromBelow() {
   function getRoot(fiber) {
     let node = fiber;
     while (node.parent) {
-      if (window.CP.shouldStopExecution(1)) break;
+      // if (window.CP.shouldStopExecution(1)) break;
       node = node.parent;
     }
-    window.CP.exitedLoop(1);
+    // window.CP.exitedLoop(1);
     return node;
   }
 
@@ -270,7 +270,7 @@ function importFromBelow() {
     // No child, we call completeWork until we find a sibling
     let uow = wipFiber;
     while (uow) {
-      if (window.CP.shouldStopExecution(2)) break;
+      // if (window.CP.shouldStopExecution(2)) break;
       completeWork(uow);
       if (uow.sibling) {
         // Sibling needs to beginWork
@@ -278,11 +278,11 @@ function importFromBelow() {
       }
       uow = uow.parent;
     }
-    window.CP.exitedLoop(2);
+    // window.CP.exitedLoop(2);
   }
 
   function beginWork(wipFiber) {
-    if (wipFiber.tag == CLASS_COMPONENT) {
+    if (wipFiber.tag === CLASS_COMPONENT) {
       updateClassComponent(wipFiber);
     } else {
       updateHostComponent(wipFiber);
@@ -303,7 +303,7 @@ function importFromBelow() {
     if (instance == null) {
       // Call class constructor
       instance = wipFiber.stateNode = createInstance(wipFiber);
-    } else if (wipFiber.props == instance.props && !wipFiber.partialState) {
+    } else if (wipFiber.props === instance.props && !wipFiber.partialState) {
       // No need to render, clone children from last time
       cloneChildFibers(wipFiber);
       return;
@@ -328,7 +328,7 @@ function importFromBelow() {
     let oldFiber = wipFiber.alternate ? wipFiber.alternate.child : null;
     let newFiber = null;
     while (index < elements.length || oldFiber != null) {
-      if (window.CP.shouldStopExecution(3)) break;
+      // if (window.CP.shouldStopExecution(3)) break;
       const prevFiber = newFiber;
       const element = index < elements.length && elements[index];
       const sameType = oldFiber && element && element.type == oldFiber.type;
@@ -375,7 +375,7 @@ function importFromBelow() {
 
       index++;
     }
-    window.CP.exitedLoop(3);
+    // window.CP.exitedLoop(3);
   }
 
   function cloneChildFibers(parentFiber) {
@@ -387,7 +387,7 @@ function importFromBelow() {
     let oldChild = oldFiber.child;
     let prevChild = null;
     while (oldChild) {
-      if (window.CP.shouldStopExecution(4)) break;
+      // if (window.CP.shouldStopExecution(4)) break;
       const newChild = {
         type: oldChild.type,
         tag: oldChild.tag,
@@ -406,7 +406,7 @@ function importFromBelow() {
       prevChild = newChild;
       oldChild = oldChild.sibling;
     }
-    window.CP.exitedLoop(4);
+    // window.CP.exitedLoop(4);
   }
 
   function completeWork(fiber) {
@@ -425,6 +425,7 @@ function importFromBelow() {
   }
 
   function commitAllWork(fiber) {
+    console.log('[commitAllWork]', fiber.effects.length);
     fiber.effects.forEach((f) => {
       commitWork(f);
     });
@@ -434,17 +435,19 @@ function importFromBelow() {
   }
 
   function commitWork(fiber) {
-    if (fiber.tag == HOST_ROOT) {
+    if (fiber.tag === HOST_ROOT) {
       return;
     }
 
     let domParentFiber = fiber.parent;
-    while (domParentFiber.tag == CLASS_COMPONENT) {
-      if (window.CP.shouldStopExecution(5)) break;
+    while (domParentFiber.tag === CLASS_COMPONENT) {
+      // if (window.CP.shouldStopExecution(5)) break;
       domParentFiber = domParentFiber.parent;
     }
-    window.CP.exitedLoop(5);
+    // window.CP.exitedLoop(5);
     const domParent = domParentFiber.stateNode;
+
+    console.log('[commitWork]', fiber.tag, fiber.type, fiber.effectTag);
 
     if (fiber.effectTag == PLACEMENT && fiber.tag == HOST_COMPONENT) {
       domParent.appendChild(fiber.stateNode);
@@ -458,14 +461,14 @@ function importFromBelow() {
   function commitDeletion(fiber, domParent) {
     let node = fiber;
     while (true) {
-      if (window.CP.shouldStopExecution(6)) break;
+      // if (window.CP.shouldStopExecution(6)) break;
       if (node.tag == CLASS_COMPONENT) {
         node = node.child;
         continue;
       }
       domParent.removeChild(node.stateNode);
       while (node != fiber && !node.sibling) {
-        if (window.CP.shouldStopExecution(7)) break;
+        // if (window.CP.shouldStopExecution(7)) break;
         node = node.parent;
       }
       window.CP.exitedLoop(7);
@@ -474,7 +477,7 @@ function importFromBelow() {
       }
       node = node.sibling;
     }
-    window.CP.exitedLoop(6);
+    // window.CP.exitedLoop(6);
   }
   //#endregion
   return {
