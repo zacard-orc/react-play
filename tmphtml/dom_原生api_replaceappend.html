@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+  <meta charset='UTF-8'>
+  <title>Title</title>
+</head>
+<body>
+
+</body>
+<script type='text/javascript'>
+  const dom = document.createElement('div')
+  const chd1 = document.createElement('span')
+  chd1.innerText = 'chd - 111'
+  dom.appendChild(chd1)
+
+  console.log(dom)
+
+  const chd2 = document.createElement('span')
+  chd2.innerText = 'chd - 222'
+  dom.replaceChild(chd2, chd1)
+
+  console.log(dom)
+
+
+</script>
+</html>
