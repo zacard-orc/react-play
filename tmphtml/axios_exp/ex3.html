@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+  <meta charset='UTF-8'>
+  <title>Title</title>
+  <script src='axios.min.js' type='text/javascript'></script>
+</head>
+<body>
+
+</body>
+<script>
+  axios({
+    method: 'post',
+    // url: 'https://api-front.ofpay.com/bocom/mobileQuery?eyJidXNpbmVzc19pZCI6IkEwODU2NiIsIm1ldGhvZCI6ImJvY29tL21vYmlsZVF1ZXJ5IiwicGhvbmVfbnVtIjoiMTM1MzM1NTMzNTgiLCJ0aW1lc3RhbXAiOiIyMDIxMDgzMDE1MTEyOSIsInRyYW5zX25vIjoiMjAwMTkzMjIwMjA4MzAxNTExMjkiLCJzaWduIjoiRDE2RjMxMTg2MzlGMkYyODNCN0I1MTU1QUVEQjAxM0UifQ==',
+    url: 'http://localhost:63343/fffff',
+    data: {
+      firstName: 'Fred',
+      lastName: 'Flintstone'
+    },
+    headers:{
+      referer: 'bbabaaba'
+    },
+    transformRequest: [function (data, headers) {
+      // Do whatever you want to transform the data
+      console.log(headers)
+
+      return data;
+    }],
+  }).then(console.log)
+    .catch(console.error)
+</script>
+</html>
