@@ -1,0 +1,65 @@
+body {
+    background-color: #F4F5F7;
+}
+html,body {
+    margin: 0;
+    box-sizing: border-box;
+}
+
+.t-bd {
+    border: 1px dashed red;
+}
+
+.fm-head {
+    height: 23vh;
+    background-image: url('assets/ic_demo01.jpg');
+    background-repeat: no-repeat;
+    background-position: 50% 50%;
+    background-size: cover;
+}
+
+.fm-panel {
+    position: relative;
+    top: -3vh;
+    width: 90%;
+    left: 5%;
+    border-radius: 2vw;
+    background-color: #fff;
+    box-shadow: #a2a2a2 0 0 5px 5px;
+    /**/
+    box-sizing: border-box;
+}
+
+.fm-panel-tab {
+    display: flex;
+    flex-direction: row;
+    font-size: 3vw;
+    height: 12vw;
+    line-height: 12vw;
+    border-top-left-radius: 2vw;
+    border-top-right-radius: 2vw;
+    background-color: #EDF2F7;
+}
+.fm-panel-tab div {
+    flex: 1;
+    text-align: center;
+}
+
+.tab-1 {
+    border-top-left-radius: 2vw;
+}
+.tab-3 {
+    border-top-right-radius: 2vw;
+}
+
+.focus-tab{
+    font-size: 4vw;
+    color: #5D95E2;
+    font-weight: 600;
+    background-color: #fff;
+}
+.focus-tab::after {
+    content: '';
+    width: 10vw;
+    border-top: 1vw solid #5D95E2 ;
+}
