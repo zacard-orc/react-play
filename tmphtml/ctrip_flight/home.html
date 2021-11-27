@@ -16,36 +16,104 @@
   <link rel='stylesheet' href='main.css'>
   <title>机票预定</title>
   <script type="text/javascript">
-    (function (doc, win) {
-      var docEl = doc.documentElement,
-        resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize',
-        recalc = function () {
-          var clientWidth = docEl.clientWidth;
-          var isAndroid = /Android/gi.test(window.navigator.appVersion);
-          if (isAndroid && clientWidth > 480){
-            clientWidth = 412;
-          }
-          const rootsize = clientWidth / 10 + 'px';
-          docEl.style.fontSize = rootsize;
-        };
-      if (!doc.addEventListener) {
-        return;
-      }
-      win.addEventListener(resizeEvt, recalc, false);
-      doc.addEventListener('DOMContentLoaded', recalc, false);
-      recalc()
-    })(document, window)
+
   </script>
 </head>
 <body>
 <noscript>你的浏览器无法支持Javascript</noscript>
 <div class='fm-head'></div>
 <div class='fm-panel'>
+  <!-- 选项卡 -->
   <div class='fm-panel-tab'>
     <div class='focus-tab tab-1'>机票｜特价机票</div>
     <div>火车票</div>
     <div class='tab-3'>汽车·船票</div>
   </div>
+
+  <!-- 行程类型 -->
+  <div class='fm-travel-type'>
+    <div class='fm-travel-type-wrap'>
+      <div class='fm-travel-type-unit '>单程</div>
+      <div class='fm-travel-type-unit focus-travel-type'>往返</div>
+      <div class='fm-travel-type-unit '>多程</div>
+    </div>
+  </div>
+
+  <!-- 起降目的地 -->
+  <div class='fm-city'>
+      <div class='fm-city-1'>深圳</div>
+      <div class='fm-city-ic'>
+        <img alt='ic_flight01' src='assets/ic_flight01.svg'/>
+      </div>
+      <div class='fm-city-2'>上海</div>
+  </div>
+
+
+  <!-- 日期选项 -->
+  <div class='fm-date'>
+    <div class='fm-date-1'>11月28日<span>明天</span></div>
+    <div class='fm-date-mid'>
+      3天
+    </div>
+    <div class='fm-date-2'>11月30日<span>周二</span></div>
+  </div>
+
+  <!-- 分割线 -->
+  <div class='fm-sepline'>
+    <div></div>
+  </div>
+
+  <!-- 配置项 -->
+  <div class='fm-config'>
+    <div class='fm-config-1'>
+      <div class='fm-config-cabin focus-cabin'>经济舱</div>
+      <div class='fm-config-cabin'>头等/公务舱</div>
+    </div>
+    <div class='fm-config-2'>
+      <div class='fm-config-acc1 '>
+        <div>
+          <label>
+            <input type='radio' name='sex' value='female' />
+          </label>
+        </div>
+        <div>
+          <div>带儿童</div>
+          <div>2-12岁</div>
+        </div>
+      </div>
+      <div class='fm-config-acc1 '>
+        <div class='fix-acc1 '>
+          <label>
+            <input type='radio' name='sex' value='female' />
+          </label>
+        </div>
+        <div>
+          <div>带婴儿</div>
+          <div>14天-2岁</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 配置项第二栏 -->
+  <div class='fm-config-tail'>
+    <div class='fm-config-2 fix-tail-1 '>
+      <div class='fm-config-acc1 '>
+        <div class='fix-tail-2 '>
+          <label>
+            <input type='radio' name='sex' value='female' />
+          </label>
+        </div>
+        <div>
+          <div>机票+酒店</div>
+        </div>
+      </div>
+    </div>
+    <div class='config-tail-tips'>
+      <span>更省心</span>
+    </div>
+  </div>
+
 </div>
 <div>1</div>
 </body>
