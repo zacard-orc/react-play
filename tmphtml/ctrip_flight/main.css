@@ -285,3 +285,22 @@ html,body {
     border-bottom-right-radius: 10px;
     padding: 0 9px;
 }
+
+.fm-btn {
+    margin-top: 2vh;
+    padding: 0 10px;
+    padding-bottom: 2vh;
+}
+
+.fm-btn div {
+    height: 5vh;
+    line-height: 5vh;
+    color: #fff;
+    border-radius: 1.2vw;
+    text-align: center;
+    background: linear-gradient(to right, #F6B534 , #FB8227); /* 标准的语法 */
+}
+
+.fm-btn div:active {
+    background: linear-gradient(to right, #71e535, #2e801c); /* 标准的语法 */
+}
