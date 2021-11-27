@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="expires" content="0" >
+  <meta http-equiv="Cache-Control" content="0" >
+  <meta http-equiv="Pragma" content="0" >
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" >
+
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no" />
+  <meta name="theme-color" content="#000000" />
+  <meta
+    name="description"
+    content="Bocom Debug App Download Using CRA"
+  />
+  <title>机票预定</title>
+  <script type="text/javascript">
+    (function (doc, win) {
+      var docEl = doc.documentElement,
+        resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize',
+        recalc = function () {
+          var clientWidth = docEl.clientWidth;
+          var isAndroid = /Android/gi.test(window.navigator.appVersion);
+          if (isAndroid && clientWidth > 480){
+            clientWidth = 412;
+          }
+          const rootsize = clientWidth / 10 + 'px';
+          docEl.style.fontSize = rootsize;
+        };
+      if (!doc.addEventListener) {
+        return;
+      }
+      win.addEventListener(resizeEvt, recalc, false);
+      doc.addEventListener('DOMContentLoaded', recalc, false);
+      recalc()
+    })(document, window)
+  </script>
+</head>
+<body>
+<noscript>你的浏览器无法支持Javascript</noscript>
+<div id="root"></div>
+</body>
+<script src="jquery.min.js"></script>
+<script type='module'>
+
+</script>
+</html>

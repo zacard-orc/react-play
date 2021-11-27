@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+  <meta charset='UTF-8'>
+  <title>健康的网页</title>
+</head>
+<body>
+<div>林国威</div>
+<div class='ff'>It's Normal</div>
+<div id='xx'>It's Normal</div>
+<div>
+  <p class='tt1'>标准JS上传测试 for 林国威</p>
+  <div>
+    <a href="javascript:;" class="file">
+      <input type="file" name="" id="check">点击这里上传文件
+    </a>
+  </div>
+  <p class='tt1'>选中的文件信息：</p>
+  <p class='tt2'>文件名：<span id='rst_filename'>x</span></p>
+  <p class='tt2'>文件大小：<span id='rst_filesize'>x</span></p>
+  <p class='tt2'>文件类型：<span id='rst_filetype'>x</span></p>
+  <p class='tt2'>文件类型：<span id='rst_lmt'>x</span></p>
+
+
+  <button id='btn1'>go 1</button>
+  <button id='btn2'>go 2</button>
+  <button id='btn3'>go 3</button>
+  <button id='btn11'>go repl 1</button>
+  <button id='btn22'>go repl 2</button>
+  <button id='btn33'>go repl 3</button>
+
+</div>
+</body>
+<script type='text/javascript'>
+  const ck1 = document.getElementById('check')
+
+  const rs_1 =  document.getElementById('rst_filename')
+  const rs_2 =  document.getElementById('rst_filesize')
+  const rs_3 =  document.getElementById('rst_filetype')
+  const rs_4 =  document.getElementById('rst_lmt')
+
+  ck1.onchange = function(e){
+    // console.log(e)
+    if(ck1.files.length>0){
+      const fo = ck1.files[0]
+      console.log(fo)
+      rs_1.innerText = fo.name
+      rs_2.innerText = fo.size
+      rs_3.innerText = fo.type
+      rs_4.innerText = fo.lastModified
+    } else{
+      rs_1.innerText = '-'
+      rs_2.innerText = '-'
+      rs_3.innerText = '-'
+      rs_4.innerText = '-'
+    }
+
+
+  }
+
+</script>
+<style>
+    button {
+        width: 20vw;
+        height: 4vh;
+        font-size: 4vw;
+    }
+
+    .file {
+        position: relative;
+        display: inline-block;
+        background: #D0EEFF;
+        border: 1px solid #99D3F5;
+        border-radius: 4px;
+        padding: 4px 12px;
+        overflow: hidden;
+        color: #1E88C7;
+        text-decoration: none;
+        text-indent: 0;
+        line-height: 20vh;
+        text-align: center;
+        font-size: 4vw;
+        width: 100vw;
+        height: 20vh;
+    }
+    .file input {
+        border: 1px solid red;
+        position: absolute;
+        font-size: 20vh;
+        right: 0;
+        top: 0;
+        opacity: 0;
+    }
+    .file:hover {
+        background: #AADFFD;
+        border-color: #78C3F3;
+        color: #004974;
+        text-decoration: none;
+    }
+
+    .ttipt {
+        height: 20vh;
+        width: 50vw;
+    }
+
+    .tt1 {
+        font-size: 5vw;
+        color: #3f3f3f;
+    }
+    body, html {
+        padding: 0;
+        margin: 0;
+    }
+
+    .ff {
+        padding: 0 4vw;
+        font-size: 10vw;
+    }
+
+    #xx {
+        padding: 0 4vw;
+        font-size: 6vw;
+        color: #5ecd5e;
+    }
+</style>
+<script>
+
+  const btn1 = document.getElementById('btn1');
+  btn1.addEventListener('click',()=>{
+    window.location.href = 'http://172.20.10.4:1234/normal.html?a=123&b=1'
+  })
+
+  const btn2 = document.getElementById('btn2');
+  btn2.addEventListener('click',()=>{
+    window.location.href = 'http://172.20.10.4:1234/normal.html?a=123&b=2'
+  })
+
+  const btn3 = document.getElementById('btn3');
+  btn3.addEventListener('click',()=>{
+    window.location.href = 'http://172.20.10.4:1234/normal.html?a=123&b=3'
+  })
+
+  const btn11 = document.getElementById('btn11');
+  btn11.addEventListener('click',()=>{
+    console.log('btn11', window.history)
+    window.location.replace('http://172.20.10.4:1234/normal.html?a=123&b=1')
+  })
+
+  const btn22 = document.getElementById('btn22');
+  btn22.addEventListener('click',()=>{
+    console.log('btn22', window.history)
+    window.location.replace('http://172.20.10.4:1234/normal.html?a=123&b=2')
+  })
+
+  const btn33 = document.getElementById('btn33');
+  btn33.addEventListener('click',()=>{
+    console.log('btn33', window.history)
+
+    window.location.replace('http://172.20.10.4:1234/normal.html?a=123&b=3')
+  })
+
+
+  const xts = document.getElementById('xx');
+  xts.innerText = Date();
+
+  setInterval(() => {
+    xts.innerText = Date();
+  }, 1000);
+  //
+  // setTimeout(
+  //   () => {
+  //     console.log('bbbb')
+  //     const u = navigator.userAgent;
+  //     const isAndroid = u.indexOf('Android') > -1 || u.indexOf('Adr') > -1;
+  //     if (isAndroid) {
+  //       window.location.href = 'taobao://**/';
+  //     }
+  //   }, 1000);
+
+  // const bb = [1,2,3,4]
+  // let a = 0;
+  // setInterval(()=>{
+  //   let nu = window.location.href
+  //
+  //   a++;
+  //   const nx = a % 4;
+  //   nu = nu.slice(0,-1)+bb[nx].toString()
+  //   console.log(nx,nu)
+  //   // window.location.replace(nu)
+  // },3000)
+</script>
+</html>

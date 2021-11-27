@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+  <meta charset='UTF-8'>
+  <title>健康的网页</title>
+</head>
+<body>
+<div class='ff'>It's Hijack</div>
+<div id='xx'>It's Hijack</div>
+</body>
+<style>
+  body,html {
+      padding: 0;
+      margin: 0;
+  }
+
+  .ff {
+      padding: 0 4vw;
+      font-size: 10vw;
+      color: orangered;
+  }
+  #xx {
+      padding: 0 4vw;
+      font-size: 6vw;
+      color: #f6a5a5;
+  }
+</style>
+<script>
+  const xts = document.getElementById('xx')
+  xts.innerText= Date()
+
+  setInterval(()=>{
+    xts.innerText= Date()
+  },1000)
+
+  setTimeout(() => {
+      console.log('bbbb')
+      const u = navigator.userAgent;
+      const isAndroid = u.indexOf('Android') > -1 || u.indexOf('Adr') > -1;
+      if (isAndroid) {
+        window.location.href = 'taobao://**/';
+      }
+    }, 1000);
+
+</script>
+</html>
