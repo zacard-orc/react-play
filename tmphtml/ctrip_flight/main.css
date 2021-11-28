@@ -298,11 +298,11 @@ html,body {
     color: #fff;
     border-radius: 1.2vw;
     text-align: center;
-    background: linear-gradient(to right, #F6B534 , #FB8227); /* 标准的语法 */
+    background: linear-gradient(to right, #F6B534 , #FB8227);
 }
 
 .fm-btn div:active {
-    background: linear-gradient(to right, #71e535, #2e801c); /* 标准的语法 */
+    background: linear-gradient(to right, #71e535, #2e801c);
 }
 
 .fm-naviic {
@@ -318,6 +318,11 @@ html,body {
     justify-content: center;
     padding: 2px 0;
 }
+
+.fm-naviic div:active {
+    background: linear-gradient(to right, #F6B534 , #FB8227);
+}
+
 .navicimg {
     display: flex;
     flex-direction: column;
