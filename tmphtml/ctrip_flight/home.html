@@ -21,6 +21,13 @@
 </head>
 <body>
 <noscript>你的浏览器无法支持Javascript</noscript>
+<div class='modal-tips '>
+  <div class='modal-text'>
+    您选择了:
+    <p class='modal-custest'>n/a</p>
+  </div>
+  <div class='modal-btn '>确定</div>
+</div>
 <div class='fm-head'></div>
 <div class='fm-panel'>
   <!-- 选项卡 -->
@@ -33,7 +40,7 @@
   <!-- 行程类型 -->
   <div class='fm-travel-type'>
     <div class='fm-travel-type-wrap'>
-      <div class='fm-travel-type-unit' data-tabv='单程'>单程</div>
+      <div class='fm-travel-type-unit focus-travel-type' data-tabv='单程'>单程</div>
       <div class='fm-travel-type-unit ' data-tabv='往返'>往返</div>
       <div class='fm-travel-type-unit ' data-tabv='多程'>多程</div>
     </div>
@@ -148,7 +155,11 @@
 <script type='text/javascript'>
   window.onload = function () {
 
-    const selObj = {}
+    const selObj = {
+      tabunit: '机票｜特价机票',
+      traveltype: '单程',
+      cabin: '经济舱',
+    }
 
     // 出行方式选择
     const panelTabUnitList = $('.panel-tab-unit');
@@ -181,10 +192,29 @@
     });
 
 
+    // 点击了查询按钮
     $('#confirm').click(()=>{
-     console.log(selObj)
+      console.log(selObj)
+      $('.modal-tips')
+        .css('display','block')
+        .removeClass('modal-tips-off')
+        .addClass('modal-tips-on')
+
+      $('.modal-custest').html(selObj.tabunit+'</br>'+selObj.traveltype+'</br>'+selObj.cabin)
     })
 
+    // 点击了modal确定按钮
+    $('.modal-btn').click(()=>{
+
+      $('.modal-tips')
+        .removeClass('modal-tips-on')
+        .addClass('modal-tips-off')
+
+      setTimeout(()=>{
+        $('.modal-tips').css('display','none')
+      },250)
+
+    })
   };
 </script>
 </html>

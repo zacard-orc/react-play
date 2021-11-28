@@ -1,7 +1,8 @@
 body {
     background-color: #F4F5F7;
 }
-html,body {
+
+html, body {
     margin: 0;
     box-sizing: border-box;
 }
@@ -40,6 +41,7 @@ html,body {
     border-top-right-radius: 2vw;
     background-color: #EDF2F7;
 }
+
 .fm-panel-tab div {
     flex: 1;
     text-align: center;
@@ -48,20 +50,22 @@ html,body {
 .tab-1 {
     border-top-left-radius: 2vw;
 }
+
 .tab-3 {
     border-top-right-radius: 2vw;
 }
 
-.focus-tab{
+.focus-tab {
     font-size: 3.5vw;
     color: #5D95E2;
     font-weight: 600;
     background-color: #fff;
 }
+
 .focus-tab::after {
     content: '';
     width: 10vw;
-    border-top: 1vw solid #5D95E2 ;
+    border-top: 1vw solid #5D95E2;
 }
 
 
@@ -72,7 +76,7 @@ html,body {
 
 }
 
-.fm-travel-type-wrap{
+.fm-travel-type-wrap {
     background-color: #F1F2F6;
     font-size: 13px;
     padding: 4px;
@@ -111,6 +115,7 @@ html,body {
     flex: 1;
 
 }
+
 .fm-city-ic {
     flex: 0 0 50px;
     text-align: center;
@@ -119,9 +124,11 @@ html,body {
     justify-content: center;
     align-items: center;
 }
+
 .fm-city-ic img {
     width: 70%;
 }
+
 .fm-city-2 {
     flex: 1;
     text-align: right;
@@ -149,6 +156,7 @@ html,body {
     color: #737373;
     line-height: 25px;
 }
+
 .fm-date-mid {
     flex: 0 0 50px;
     text-align: center;
@@ -175,6 +183,7 @@ html,body {
     margin-top: 2vh;
     padding: 0 10px;
 }
+
 .fm-sepline div {
     border-top: 2px solid #EFEEF3;
 }
@@ -203,6 +212,7 @@ html,body {
     line-height: 3.5vh;
     color: #737477;
 }
+
 .focus-cabin {
     background-color: #fff;
     border-radius: 4px;
@@ -224,26 +234,27 @@ html,body {
     flex-direction: row;
 }
 
-.fm-config-acc1 div{
+.fm-config-acc1 div {
     flex: 1;
     display: flex;
     flex-direction: column;
     justify-content: center;
 }
 
-.fm-config-acc1 div:nth-child(1){
+.fm-config-acc1 div:nth-child(1) {
     text-align: right;
 }
-.fm-config-acc1 div:nth-child(2){
+
+.fm-config-acc1 div:nth-child(2) {
     text-align: left;
     font-size: 8px;
     font-weight: 300;
     color: #aeaeae;
 }
 
-.fm-config-acc1 div:nth-child(2) div:nth-child(1){
+.fm-config-acc1 div:nth-child(2) div:nth-child(1) {
     text-align: left;
-    font-weight:400;
+    font-weight: 400;
     color: #1d1d1d;
 }
 
@@ -267,8 +278,9 @@ html,body {
 .fix-tail-1 {
     flex: 0 0 25%;
 }
-.fix-tail-2{
-    flex: 0 0 20%!important;
+
+.fix-tail-2 {
+    flex: 0 0 20% !important;
 }
 
 .config-tail-tips {
@@ -277,6 +289,7 @@ html,body {
     padding: 2px 0;
     box-sizing: border-box;
 }
+
 .config-tail-tips span {
     background-color: orange;
     color: #fff;
@@ -298,7 +311,7 @@ html,body {
     color: #fff;
     border-radius: 1.2vw;
     text-align: center;
-    background: linear-gradient(to right, #F6B534 , #FB8227);
+    background: linear-gradient(to right, #F6B534, #FB8227);
 }
 
 .fm-btn div:active {
@@ -320,7 +333,7 @@ html,body {
 }
 
 .fm-naviic div:active {
-    background: linear-gradient(to right, #F6B534 , #FB8227);
+    background: linear-gradient(to right, #F6B534, #FB8227);
 }
 
 .navicimg {
@@ -329,6 +342,7 @@ html,body {
     justify-content: center;
     align-items: center;
 }
+
 .navicimg img {
     width: 60%;
 }
@@ -338,4 +352,63 @@ html,body {
     text-align: center;
     font-size: 12px;
     color: #6B6B6B;
+}
+
+.modal-tips {
+    position: absolute;
+    z-index: 999;
+    width: 100vw;
+    height: 25vh;
+    top: 20vh;
+    background-color: #fff;
+    display: none;
+
+    /*transition: height 1s, width 1s;*/
+}
+
+.modal-text {
+    height: 18vh;
+    padding: 6px;
+    box-sizing: border-box;
+}
+
+.modal-btn {
+    width: 100vw;
+    background-color: dodgerblue;
+    color: #fff;
+    height: 7vh;
+    text-align: center;
+    line-height: 7vh;
+}
+
+.modal-btn:active {
+    background-color: #5fadfc;
+
+}
+
+
+@keyframes anmOn {
+    0% {
+        transform: scale(0);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+@keyframes anmOff {
+    0% {
+        transform: scale(1);
+    }
+    100% {
+        transform: scale(0);
+    }
+}
+
+.modal-tips-on {
+    animation: anmOn 0.3s ease;
+}
+
+.modal-tips-off {
+    animation: anmOff 0.3s ease;
 }
