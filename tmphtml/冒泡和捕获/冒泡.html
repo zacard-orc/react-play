@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+  <meta charset='UTF-8'>
+  <title>冒泡和捕获</title>
+</head>
+<body>
+<div class='red' id='red'>
+  <div class='yellow' id='yellow'>
+    <div class='blue' id='blue'>
+      <div class='green' id='green'>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+</body>
+<style>
+  .red {
+      width: 500px;
+      height: 400px;
+      background-color: #f6a5a5;
+  }
+  .yellow {
+      width: 400px;
+      height: 300px;
+      background-color: lightgoldenrodyellow;
+  }
+
+  .blue {
+      width: 300px;
+      height: 200px;
+      background-color: lightblue;
+  }
+  .green {
+      width: 200px;
+      height: 100px;
+      background-color: lightgreen;
+  }
+</style>
+<script>
+  /*
+    true 捕获阶段，从外层往里面图层触发事件
+    *false 冒泡阶段，从里面图层往外面图层触发事件，也是默认
+    如果有true有false就看，一维直线上的先后顺序
+   */
+  document.getElementById('red').addEventListener('click',(e)=>{
+    console.log('click red')
+  },false)
+
+  document.getElementById('yellow').addEventListener('click',()=>{
+    console.log('click yellow')
+  },false)
+
+  document.getElementById('blue').addEventListener('click',(e)=>{
+    console.log('click blue')
+    e.preventDefault();
+    e.stopPropagation();
+  },false)
+
+  document.getElementById('green').addEventListener('click',()=>{
+    console.log('click green')
+  },false)
+</script>
+</html>

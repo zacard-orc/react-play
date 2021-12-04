@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>高是宽的一半2</title>
+  <style>
+      .outer {
+          width: 800px;
+          height: 200px;
+          background: lightblue;
+      }
+
+      .inner {
+          width: 20%;
+          height: 20%;  /* ref 父级高度 */
+          /*padding-bottom: 20%;*/ /* ref 父级宽度 */
+          background: #fda5a5;
+      }
+  </style>
+</head>
+<body>
+<div class="outer">
+  <div class="inner"></div>
+</div>
+</body>
+</html>

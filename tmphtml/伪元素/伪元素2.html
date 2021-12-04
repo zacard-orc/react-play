@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+  <meta charset='UTF-8'>
+  <title>伪元素2</title>
+</head>
+<body>
+<div>
+  <p class='red'>123</p>
+</div>
+</body>
+<style>
+.red {
+    width: 100px;
+    border: 1px solid palevioletred;
+}
+.red::after {
+    content: '';
+    height: 10px;
+    padding: 3px;
+    margin-left: 20px;
+    background-color: #5ecd5e;
+    border: 1px solid red;
+    /*display: inline-block;*/
+    /*display: inline-block;*/
+    /*position: relative;*/
+    /*top: 50px;*/
+}
+</style>
+<script>
+  // console.log(window.localStorage.setItem('bbb','bbbbb'))
+  // console.log(window.localStorage.getItem('bbb'))
+</script>
+</html>
